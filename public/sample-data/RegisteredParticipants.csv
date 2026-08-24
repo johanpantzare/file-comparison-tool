@@ -1,0 +1,91 @@
+Registration ID,Participant ID,Name,Email,Dealer,Country,Badge Status,Arrival Date,Consent Status,Source
+R0001,U0001,Ava Andersson 0001,ava.andersson0001@example.com,Nordic Equipment Group,Sweden,Printed,2024-01-07,Pending,Registration portal
+R0002,U0002,Liam Holm 0002,liam.holm0002@example.com,Nordic Equipment Group,Sweden,Ready,2025-02-08,Confirmed,Registration portal
+R0003,U0003,Mia Olsen 0003,mia.olsen0003@example.com,Nordic Equipment Group,Sweden,Ready,2026-03-09,Confirmed,Registration portal
+R0004,U0004,Noah Vega 0004,noah.vega0004@example.com,Nordic Equipment Group,Sweden,Ready,2024-04-10,Confirmed,Registration portal
+R0005,U0005,Emma Dahl 0005,emma.dahl0005@example.com,Nordic Equipment Group,Sweden,Ready,2025-05-11,Confirmed,Registration portal
+R0006,U0006,Oscar Kim 0006,oscar.kim0006@example.com,Nordic Equipment Group,Sweden,Ready,2026-06-12,Confirmed,Registration portal
+R0007,U0007,Sofia Rossi 0007,sofia.rossi0007@example.com,Nordic Equipment Group,Sweden,Printed,2024-07-13,Confirmed,Registration portal
+R0008,U0008,Lucas Zimmer 0008,lucas.zimmer0008@example.com,Nordic Equipment Group,Sweden,Ready,2025-08-14,Confirmed,Registration portal
+R0009,U0009,Ella Garcia 0009,ella.garcia0009@example.com,Nordic Equipment Group,Sweden,Ready,2026-09-15,Confirmed,Registration portal
+R0010,U0010,Hugo Nordin 0010,hugo.nordin0010@example.com,Nordic Equipment Group,Sweden,Ready,2024-10-16,Confirmed,Registration portal
+R0011,U0011,Nora Usman 0011,nora.usman0011@example.com,Fjord Machines Group,Norway,Ready,2025-11-17,Confirmed,Registration portal
+R0012,U0012,Leo Carter 0012,leo.carter0012@example.com,Fjord Machines Group,Norway,Ready,2026-12-18,Pending,Registration portal
+R0013,U0013,Alma Johansson 0013,alma.johansson0013@example.com,Fjord Machines Group,Norway,Printed,2024-01-19,Confirmed,Registration portal
+R0014,U0014,Felix Quinn 0014,felix.quinn0014@example.com,Fjord Machines Group,Norway,Ready,2025-02-20,Confirmed,Registration portal
+R0015,U0015,Clara Young 0015,clara.young0015@example.com,Fjord Machines Group,Norway,Ready,2026-03-21,Confirmed,Registration portal
+R0016,U0016,Milo Fischer 0016,milo.fischer0016@example.com,Fjord Machines Group,Norway,Ready,2024-04-22,Confirmed,Registration portal
+R0017,U0017,Freja Muller 0017,freja.muller0017@example.com,Fjord Machines Group,Norway,Ready,2025-05-23,Confirmed,Registration portal
+R0018,U0018,Elias Turner 0018,elias.turner0018@example.com,Fjord Machines Group,Norway,Ready,2026-06-24,Confirmed,Registration portal
+R0019,U0019,Lina Berg 0019,lina.berg0019@example.com,Fjord Machines Group,Norway,Printed,2024-07-25,Confirmed,Registration portal
+R0020,U0020,Theo Ivanov 0020,theo.ivanov0020@example.com,Fjord Machines Group,Norway,Ready,2025-08-26,Confirmed,Registration portal
+R0021,U0021,Ava Patel 0021,ava.patel0021@example.com,Bau Technik Holdings,Germany,Ready,2026-09-27,Confirmed,Registration portal
+R0022,U0022,Liam Wang 0022,liam.wang0022@example.com,Bau Technik Holdings,Germany,Ready,2024-10-01,Confirmed,Registration portal
+R0023,U0023,Mia Eriksson 0023,mia.eriksson0023@example.com,Bau Technik Holdings,Germany,Ready,2025-11-02,Pending,Registration portal
+R0024,U0024,Noah Larsen 0024,noah.larsen0024@example.com,Bau Technik Holdings,Germany,Ready,2026-12-03,Confirmed,Registration portal
+R0025,U0025,Emma Silva 0025,emma.silva0025@example.com,Bau Technik Holdings,Germany,Printed,2024-01-04,Confirmed,Registration portal
+R0026,U0026,Oscar Andersson 0026,oscar.andersson0026@example.com,Bau Technik Holdings,Germany,Ready,2025-02-05,Confirmed,Registration portal
+R0027,U0027,Sofia Holm 0027,sofia.holm0027@example.com,Bau Technik Holdings,Germany,Ready,2026-03-06,Confirmed,Registration portal
+R0028,U0028,Lucas Olsen 0028,lucas.olsen0028@example.com,Bau Technik Holdings,Germany,Ready,2024-04-07,Confirmed,Registration portal
+R0029,U0029,Ella Vega 0029,ella.vega0029@example.com,Bau Technik Holdings,Germany,Ready,2025-05-08,Confirmed,Registration portal
+R0030,U0030,Hugo Dahl 0030,hugo.dahl0030@example.com,Bau Technik Holdings,Germany,Ready,2026-06-09,Confirmed,Registration portal
+R0031,U0031,Nora Kim 0031,nora.kim0031@example.com,Pieces Service Group,France,Printed,2024-07-10,Confirmed,Registration portal
+R0032,U0032,Leo Rossi 0032,leo.rossi0032@example.com,Pieces Service Group,France,Ready,2025-08-11,Confirmed,Registration portal
+R0033,U0033,Alma Zimmer 0033,alma.zimmer0033@example.com,Pieces Service Group,France,Ready,2026-09-12,Confirmed,Registration portal
+R0034,U0034,Felix Garcia 0034,felix.garcia0034@example.com,Pieces Service Group,France,Ready,2024-10-13,Pending,Registration portal
+R0035,U0035,Clara Nordin 0035,clara.nordin0035@example.com,Pieces Service Group,France,Ready,2025-11-14,Confirmed,Registration portal
+R0036,U0036,Milo Usman 0036,milo.usman0036@example.com,Pieces Service Group,France,Ready,2026-12-15,Confirmed,Registration portal
+R0037,U0037,Freja Carter 0037,freja.carter0037@example.com,Pieces Service Group,France,Printed,2024-01-16,Confirmed,Registration portal
+R0038,U0038,Elias Johansson 0038,elias.johansson0038@example.com,Pieces Service Group,France,Ready,2025-02-17,Confirmed,Registration portal
+R0039,U0039,Lina Quinn 0039,lina.quinn0039@example.com,Pieces Service Group,France,Ready,2026-03-18,Confirmed,Registration portal
+R0040,U0040,Theo Young 0040,theo.young0040@example.com,Pieces Service Group,France,Ready,2024-04-19,Confirmed,Registration portal
+R0041,U0041,Ava Fischer 0041,ava.fischer0041@example.com,Great Lakes Rental,United States,Ready,2025-05-20,Confirmed,Registration portal
+R0042,U0042,Liam Muller 0042,liam.muller0042@example.com,Great Lakes Rental,United States,Ready,2026-06-21,Confirmed,Registration portal
+R0043,U0043,Mia Turner 0043,mia.turner0043@example.com,Great Lakes Rental,United States,Printed,2024-07-22,Confirmed,Registration portal
+R0044,U0044,Noah Berg 0044,noah.berg0044@example.com,Great Lakes Rental,United States,Ready,2025-08-23,Confirmed,Registration portal
+R0045,U0045,Emma Ivanov 0045,emma.ivanov0045@example.com,Great Lakes Rental,United States,Ready,2026-09-24,Pending,Registration portal
+R0046,U0046,Oscar Patel 0046,oscar.patel0046@example.com,Great Lakes Rental,United States,Ready,2024-10-25,Confirmed,Registration portal
+R0047,U0047,Sofia Wang 0047,sofia.wang0047@example.com,Great Lakes Rental,United States,Ready,2025-11-26,Confirmed,Registration portal
+R0048,U0048,Lucas Eriksson 0048,lucas.eriksson0048@example.com,Great Lakes Rental,United States,Ready,2026-12-27,Confirmed,Registration portal
+R0049,U0049,Ella Larsen 0049,ella.larsen0049@example.com,Great Lakes Rental,United States,Printed,2024-01-01,Confirmed,Registration portal
+R0050,U0050,Hugo Silva 0050,hugo.silva0050@example.com,Great Lakes Rental,United States,Ready,2025-02-02,Confirmed,Registration portal
+R0051,U0051,Nora Andersson 0051,nora.andersson0051@example.com,Britannia Plant Services,United Kingdom,Ready,2026-03-03,Confirmed,Registration portal
+R0052,U0052,Leo Holm 0052,leo.holm0052@example.com,Britannia Plant Services,United Kingdom,Ready,2024-04-04,Confirmed,Registration portal
+R0053,U0053,Alma Olsen 0053,alma.olsen0053@example.com,Britannia Plant Services,United Kingdom,Ready,2025-05-05,Confirmed,Registration portal
+R0054,U0054,Felix Vega 0054,felix.vega0054@example.com,Britannia Plant Services,United Kingdom,Ready,2026-06-06,Confirmed,Registration portal
+R0055,U0055,Clara Dahl 0055,clara.dahl0055@example.com,Britannia Plant Services,United Kingdom,Printed,2024-07-07,Confirmed,Registration portal
+R0056,U0056,Milo Kim 0056,milo.kim0056@example.com,Britannia Plant Services,United Kingdom,Ready,2025-08-08,Pending,Registration portal
+R0057,U0057,Freja Rossi 0057,freja.rossi0057@example.com,Britannia Plant Services,United Kingdom,Ready,2026-09-09,Confirmed,Registration portal
+R0058,U0058,Elias Zimmer 0058,elias.zimmer0058@example.com,Britannia Plant Services,United Kingdom,Ready,2024-10-10,Confirmed,Registration portal
+R0059,U0059,Lina Garcia 0059,lina.garcia0059@example.com,Britannia Plant Services,United Kingdom,Ready,2025-11-11,Confirmed,Registration portal
+R0060,U0060,Theo Nordin 0060,theo.nordin0060@example.com,Britannia Plant Services,United Kingdom,Ready,2026-12-12,Confirmed,Registration portal
+R0061,U0061,Ava Usman 0061,ava.usman0061@example.com,Delta Connected Services,Netherlands,Printed,2024-01-13,Confirmed,Registration portal
+R0062,U0062,Liam Carter 0062,liam.carter0062@example.com,Delta Connected Services,Netherlands,Ready,2025-02-14,Confirmed,Registration portal
+R0063,U0063,Mia Johansson 0063,mia.johansson0063@example.com,Delta Connected Services,Netherlands,Ready,2026-03-15,Confirmed,Registration portal
+R0064,U0064,Noah Quinn 0064,noah.quinn0064@example.com,Delta Connected Services,Netherlands,Ready,2024-04-16,Confirmed,Registration portal
+R0065,U0065,Emma Young 0065,emma.young0065@example.com,Delta Connected Services,Netherlands,Ready,2025-05-17,Confirmed,Registration portal
+R0066,U0066,Oscar Fischer 0066,oscar.fischer0066@example.com,Delta Connected Services,Netherlands,Ready,2026-06-18,Confirmed,Registration portal
+R0067,U0067,Sofia Muller 0067,sofia.muller0067@example.com,Delta Connected Services,Netherlands,Printed,2024-07-19,Pending,Registration portal
+R0068,U0068,Lucas Turner 0068,lucas.turner0068@example.com,Delta Connected Services,Netherlands,Ready,2025-08-20,Confirmed,Registration portal
+R0069,U0069,Ella Berg 0069,ella.berg0069@example.com,Delta Connected Services,Netherlands,Ready,2026-09-21,Confirmed,Registration portal
+R0070,U0070,Hugo Ivanov 0070,hugo.ivanov0070@example.com,Delta Connected Services,Netherlands,Ready,2024-10-22,Confirmed,Registration portal
+R0071,U0071,Nora Patel 0071,nora.patel0071@example.com,Iberia Dealer Network,Spain,Ready,2025-11-23,Confirmed,Registration portal
+R0072,U0072,Leo Wang 0072,leo.wang0072@example.com,Iberia Dealer Network,Spain,Ready,2026-12-24,Confirmed,Registration portal
+R0073,U0073,Alma Eriksson 0073,alma.eriksson0073@example.com,Iberia Dealer Network,Spain,Printed,2024-01-25,Confirmed,Registration portal
+R0074,U0074,Felix Larsen 0074,felix.larsen0074@example.com,Iberia Dealer Network,Spain,Ready,2025-02-26,Confirmed,Registration portal
+R0075,U0075,Clara Silva 0075,clara.silva0075@example.com,Iberia Dealer Network,Spain,Ready,2026-03-27,Confirmed,Registration portal
+R0076,U0076,Milo Andersson 0076,milo.andersson0076@example.com,Iberia Dealer Network,Spain,Ready,2024-04-01,Confirmed,Registration portal
+R0077,U0077,Freja Holm 0077,freja.holm0077@example.com,Iberia Dealer Network,Spain,Ready,2025-05-02,Confirmed,Registration portal
+R0078,U0078,Elias Olsen 0078,elias.olsen0078@example.com,Iberia Dealer Network,Spain,Ready,2026-06-03,Pending,Registration portal
+R0079,U0079,Lina Vega 0079,lina.vega0079@example.com,Iberia Dealer Network,Spain,Printed,2024-07-04,Confirmed,Registration portal
+R0080,U0080,Theo Dahl 0080,theo.dahl0080@example.com,Iberia Dealer Network,Spain,Ready,2025-08-05,Confirmed,Registration portal
+R0900,U0121,Ava Patel 0121,ava.patel0121@example.com,Pacific Site Solutions,Australia,Ready,2026-09-18,Confirmed,Optional attendee
+R0901,U0122,Liam Wang 0122,liam.wang0122@example.com,Pacific Site Solutions,Australia,Ready,2024-10-19,Confirmed,Optional attendee
+R0902,U0123,Mia Eriksson 0123,mia.eriksson0123@example.com,Pacific Site Solutions,Australia,Ready,2025-11-20,Confirmed,Optional attendee
+R0903,U0124,Noah Larsen 0124,noah.larsen0124@example.com,Pacific Site Solutions,Australia,Ready,2026-12-21,Confirmed,Optional attendee
+R0904,U0125,Emma Silva 0125,emma.silva0125@example.com,Pacific Site Solutions,Australia,Ready,2024-01-22,Confirmed,Optional attendee
+R0905,U0126,Oscar Andersson 0126,oscar.andersson0126@example.com,Pacific Site Solutions,Australia,Ready,2025-02-23,Confirmed,Optional attendee
+R0906,U0127,Sofia Holm 0127,sofia.holm0127@example.com,Pacific Site Solutions,Australia,Ready,2026-03-24,Confirmed,Optional attendee
+R0907,U0128,Lucas Olsen 0128,lucas.olsen0128@example.com,Pacific Site Solutions,Australia,Ready,2024-04-25,Confirmed,Optional attendee
+R0908,U0129,Ella Vega 0129,ella.vega0129@example.com,Pacific Site Solutions,Australia,Ready,2025-05-26,Confirmed,Optional attendee
+R0909,U0130,Hugo Dahl 0130,hugo.dahl0130@example.com,Pacific Site Solutions,Australia,Ready,2026-06-27,Confirmed,Optional attendee

@@ -1,0 +1,101 @@
+PARMA ID,Branch ID,Compliance Status,Risk Level,Contract Renewal,Data Sharing Agreement,Last Safety Review,Required Courses,Completed Courses,Audit Owner
+P731204,B731-001,Approved,Low,2025-11-02,Missing,2025-05-08,8,6,Ava Andersson
+P184920,B184-001,Approved,Medium,2026-12-03,Signed,2026-06-09,9,7,Emma Garcia
+P642118,B642-001,Review needed,Low,2024-01-04,Signed,2024-07-10,10,8,Ella Muller
+P295731,B295-001,Pending,High,2025-02-05,Signed,2025-08-11,11,9,Alma Silva
+P807443,B807-001,Approved,Low,2026-03-06,Signed,2026-09-12,12,10,Freja Zimmer
+P516082,B516-001,Approved,Medium,2024-04-07,Missing,2024-10-13,13,11,Ava Fischer
+P409675,B409-001,Review needed,Low,2025-05-08,Signed,2025-11-14,8,12,Emma Larsen
+P920114,B920-001,Pending,High,2026-06-09,Signed,2026-12-15,9,6,Ella Rossi
+P358706,B358-001,Approved,Low,2024-07-10,Signed,2024-01-16,10,7,Alma Young
+P674219,B674-001,Approved,Medium,2025-08-11,Signed,2025-02-17,11,8,Freja Eriksson
+P247806,B247-001,Review needed,Low,2026-09-12,Missing,2026-03-18,12,9,Ava Kim
+P803162,B803-001,Pending,High,2024-10-13,Signed,2024-04-19,13,10,Emma Quinn
+P469350,B469-001,Approved,Low,2025-11-14,Signed,2025-05-20,8,11,Ella Wang
+P582941,B582-001,Approved,Medium,2026-12-15,Signed,2026-06-21,9,12,Alma Dahl
+P390526,B390-001,Review needed,Low,2024-01-16,Signed,2024-07-22,10,6,Freja Johansson
+P718634,B718-001,Pending,High,2025-02-17,Missing,2025-08-23,11,7,Ava Patel
+P235497,B235-001,Approved,Low,2026-03-18,Signed,2026-09-24,12,8,Emma Vega
+P849205,B849-001,Approved,Medium,2024-04-19,Signed,2024-10-25,13,9,Ella Carter
+P604738,B604-001,Review needed,Low,2025-05-20,Signed,2025-11-26,8,10,Alma Ivanov
+P976051,B976-001,Pending,High,2026-06-21,Signed,2026-12-27,9,11,Freja Olsen
+P731204,B731-002,Approved,Low,2024-07-22,Missing,2024-01-01,10,12,Ava Usman
+P184920,B184-002,Approved,Medium,2025-08-23,Signed,2025-02-02,11,6,Emma Berg
+P642118,B642-002,Review needed,Low,2026-09-24,Signed,2026-03-03,12,7,Ella Holm
+P295731,B295-002,Pending,High,2024-10-25,Signed,2024-04-04,13,8,Alma Nordin
+P807443,B807-002,Approved,Low,2025-11-26,Signed,2025-05-05,8,9,Freja Turner
+P516082,B516-002,Approved,Medium,2026-12-27,Missing,2026-06-06,9,10,Ava Andersson
+P409675,B409-002,Review needed,Low,2024-01-01,Signed,2024-07-07,10,11,Emma Garcia
+P920114,B920-002,Pending,High,2025-02-02,Signed,2025-08-08,11,12,Ella Muller
+P358706,B358-002,Approved,Low,2026-03-03,Signed,2026-09-09,12,6,Alma Silva
+P674219,B674-002,Approved,Medium,2024-04-04,Signed,2024-10-10,13,7,Freja Zimmer
+P247806,B247-002,Review needed,Low,2025-05-05,Missing,2025-11-11,8,8,Ava Fischer
+P803162,B803-002,Pending,High,2026-06-06,Signed,2026-12-12,9,9,Emma Larsen
+P469350,B469-002,Approved,Low,2024-07-07,Signed,2024-01-13,10,10,Ella Rossi
+P582941,B582-002,Approved,Medium,2025-08-08,Signed,2025-02-14,11,11,Alma Young
+P390526,B390-002,Review needed,Low,2026-09-09,Signed,2026-03-15,12,12,Freja Eriksson
+P718634,B718-002,Pending,High,2024-10-10,Missing,2024-04-16,13,6,Ava Kim
+P235497,B235-002,Approved,Low,2025-11-11,Signed,2025-05-17,8,7,Emma Quinn
+P849205,B849-002,Approved,Medium,2026-12-12,Signed,2026-06-18,9,8,Ella Wang
+P604738,B604-002,Review needed,Low,2024-01-13,Signed,2024-07-19,10,9,Alma Dahl
+P976051,B976-002,Pending,High,2025-02-14,Signed,2025-08-20,11,10,Freja Johansson
+P731204,B731-003,Approved,Low,2026-03-15,Missing,2026-09-21,12,11,Ava Patel
+P184920,B184-003,Approved,Medium,2024-04-16,Signed,2024-10-22,13,12,Emma Vega
+P642118,B642-003,Review needed,Low,2025-05-17,Signed,2025-11-23,8,6,Ella Carter
+P295731,B295-003,Pending,High,2026-06-18,Signed,2026-12-24,9,7,Alma Ivanov
+P807443,B807-003,Approved,Low,2024-07-19,Signed,2024-01-25,10,8,Freja Olsen
+P516082,B516-003,Approved,Medium,2025-08-20,Missing,2025-02-26,11,9,Ava Usman
+P409675,B409-003,Review needed,Low,2026-09-21,Signed,2026-03-27,12,10,Emma Berg
+P920114,B920-003,Pending,High,2024-10-22,Signed,2024-04-01,13,11,Ella Holm
+P358706,B358-003,Approved,Low,2025-11-23,Signed,2025-05-02,8,12,Alma Nordin
+P674219,B674-003,Approved,Medium,2026-12-24,Signed,2026-06-03,9,6,Freja Turner
+P247806,B247-003,Review needed,Low,2024-01-25,Missing,2024-07-04,10,7,Ava Andersson
+P803162,B803-003,Pending,High,2025-02-26,Signed,2025-08-05,11,8,Emma Garcia
+P469350,B469-003,Approved,Low,2026-03-27,Signed,2026-09-06,12,9,Ella Muller
+P582941,B582-003,Approved,Medium,2024-04-01,Signed,2024-10-07,13,10,Alma Silva
+P390526,B390-003,Review needed,Low,2025-05-02,Signed,2025-11-08,8,11,Freja Zimmer
+P718634,B718-003,Pending,High,2026-06-03,Missing,2026-12-09,9,12,Ava Fischer
+P235497,B235-003,Approved,Low,2024-07-04,Signed,2024-01-10,10,6,Emma Larsen
+P849205,B849-003,Approved,Medium,2025-08-05,Signed,2025-02-11,11,7,Ella Rossi
+P604738,B604-003,Review needed,Low,2026-09-06,Signed,2026-03-12,12,8,Alma Young
+P976051,B976-003,Pending,High,2024-10-07,Signed,2024-04-13,13,9,Freja Eriksson
+P731204,B731-004,Approved,Low,2025-11-08,Missing,2025-05-14,8,10,Ava Kim
+P184920,B184-004,Approved,Medium,2026-12-09,Signed,2026-06-15,9,11,Emma Quinn
+P642118,B642-004,Review needed,Low,2024-01-10,Signed,2024-07-16,10,12,Ella Wang
+P295731,B295-004,Pending,High,2025-02-11,Signed,2025-08-17,11,6,Alma Dahl
+P807443,B807-004,Approved,Low,2026-03-12,Signed,2026-09-18,12,7,Freja Johansson
+P516082,B516-004,Approved,Medium,2024-04-13,Missing,2024-10-19,13,8,Ava Patel
+P409675,B409-004,Review needed,Low,2025-05-14,Signed,2025-11-20,8,9,Emma Vega
+P920114,B920-004,Pending,High,2026-06-15,Signed,2026-12-21,9,10,Ella Carter
+P358706,B358-004,Approved,Low,2024-07-16,Signed,2024-01-22,10,11,Alma Ivanov
+P674219,B674-004,Approved,Medium,2025-08-17,Signed,2025-02-23,11,12,Freja Olsen
+P247806,B247-004,Review needed,Low,2026-09-18,Missing,2026-03-24,12,6,Ava Usman
+P803162,B803-004,Pending,High,2024-10-19,Signed,2024-04-25,13,7,Emma Berg
+P469350,B469-004,Approved,Low,2025-11-20,Signed,2025-05-26,8,8,Ella Holm
+P582941,B582-004,Approved,Medium,2026-12-21,Signed,2026-06-27,9,9,Alma Nordin
+P390526,B390-004,Review needed,Low,2024-01-22,Signed,2024-07-01,10,10,Freja Turner
+P718634,B718-004,Pending,High,2025-02-23,Missing,2025-08-02,11,11,Ava Andersson
+P235497,B235-004,Approved,Low,2026-03-24,Signed,2026-09-03,12,12,Emma Garcia
+P849205,B849-004,Approved,Medium,2024-04-25,Signed,2024-10-04,13,6,Ella Muller
+P604738,B604-004,Review needed,Low,2025-05-26,Signed,2025-11-05,8,7,Alma Silva
+P976051,B976-004,Pending,High,2026-06-27,Signed,2026-12-06,9,8,Freja Zimmer
+P731204,B731-005,Approved,Low,2024-07-01,Missing,2024-01-07,10,9,Ava Fischer
+P184920,B184-005,Approved,Medium,2025-08-02,Signed,2025-02-08,11,10,Emma Larsen
+P642118,B642-005,Review needed,Low,2026-09-03,Signed,2026-03-09,12,11,Ella Rossi
+P295731,B295-005,Pending,High,2024-10-04,Signed,2024-04-10,13,12,Alma Young
+P807443,B807-005,Approved,Low,2025-11-05,Signed,2025-05-11,8,6,Freja Eriksson
+P516082,B516-005,Approved,Medium,2026-12-06,Missing,2026-06-12,9,7,Ava Kim
+P409675,B409-005,Review needed,Low,2024-01-07,Signed,2024-07-13,10,8,Emma Quinn
+P920114,B920-005,Pending,High,2025-02-08,Signed,2025-08-14,11,9,Ella Wang
+P358706,B358-005,Approved,Low,2026-03-09,Signed,2026-09-15,12,10,Alma Dahl
+P674219,B674-005,Approved,Medium,2024-04-10,Signed,2024-10-16,13,11,Freja Johansson
+P247806,B247-005,Review needed,Low,2025-05-11,Missing,2025-11-17,8,12,Ava Patel
+P803162,B803-005,Pending,High,2026-06-12,Signed,2026-12-18,9,6,Emma Vega
+P469350,B469-005,Approved,Low,2024-07-13,Signed,2024-01-19,10,7,Ella Carter
+P582941,B582-005,Approved,Medium,2025-08-14,Signed,2025-02-20,11,8,Alma Ivanov
+P390526,B390-005,Review needed,Low,2026-09-15,Signed,2026-03-21,12,9,Freja Olsen
+P718634,B718-005,Pending,High,2024-10-16,Missing,2024-04-22,13,10,Ava Usman
+P235497,B235-005,Approved,Low,2025-11-17,Signed,2025-05-23,8,11,Emma Berg
+P849205,B849-005,Approved,Medium,2026-12-18,Signed,2026-06-24,9,12,Ella Holm
+P604738,B604-005,Review needed,Low,2024-01-19,Signed,2024-07-25,10,6,Alma Nordin
+P976051,B976-005,Pending,High,2025-02-20,Signed,2025-08-26,11,7,Freja Turner

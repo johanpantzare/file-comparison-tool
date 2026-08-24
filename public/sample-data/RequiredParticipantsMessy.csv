@@ -1,0 +1,81 @@
+Participant ID,Name,Email,Dealer,Country,Role,Required Session,Priority
+U0001,Ava Andersson 0001,ava.andersson0001@example.com,Nordic Equipment Group,Sweden,Sales Manager,Opening briefing,High
+U0002,Liam Holm 0002,liam.holm0002@example.com,Nordic Equipment Group,Sweden,Technician,Safety training,Normal
+U0003,Mia Olsen 0003,mia.olsen0003@example.com,Nordic Equipment Group,Sweden,Trainer,Product workshop,Normal
+U0004,Noah Vega 0004,noah.vega0004@example.com,Nordic Equipment Group,Sweden,Coordinator,Final assessment,Normal
+U0005,Emma Dahl 0005,emma.dahl0005@example.com,Nordic Equipment Group,Sweden,Analyst,Opening briefing,Normal
+U0006,Oscar Kim 0006,oscar.kim0006@example.com,Nordic Equipment Group,Sweden,Support Specialist,Safety training,Normal
+U0007,Sofia Rossi 0007,sofia.rossi0007@example.com,Nordic Equipment Group,Sweden,Sales Manager,Product workshop,Normal
+,Lucas Zimmer 0008,lucas.zimmer0008@example.com,Nordic Equipment Group,Sweden,Technician,Final assessment,Normal
+U0009,Ella Garcia 0009,ella.garcia0009@example.com,Nordic Equipment Group,Sweden,Trainer,Opening briefing,Normal
+U0010,Hugo Nordin 0010,hugo.nordin0010@example.com,Nordic Equipment Group,Sweden,Coordinator,Safety training,High
+U0011,Nora Usman 0011,nora.usman0011@example.com,Fjord Machines Group,Norway,Analyst,Product workshop,Normal
+U0012,Leo Carter 0012,leo.carter0012@example.com,Fjord Machines Group,Norway,Support Specialist,Final assessment,Normal
+U0013,Alma Johansson 0013,alma.johansson0013@example.com,Fjord Machines Group,Norway,Sales Manager,Opening briefing,Normal
+U0014,Felix Quinn 0014,felix.quinn0014@example.com,Fjord Machines Group,Norway,Technician,Safety training,Normal
+U0015,Clara Young 0015,clara.young0015@example.com,Fjord Machines Group,Norway,Trainer,Product workshop,Normal
+U0016,Milo Fischer 0016,milo.fischer0016@example.com,Fjord Machines Group,Norway,Coordinator,Final assessment,Normal
+U0017,Freja Muller 0017,freja.muller0017@example.com,Fjord Machines Group,Norway,Analyst,Opening briefing,Normal
+U0018,Elias Turner 0018,elias.turner0018@example.com,Fjord Machines Group,Norway,Support Specialist,Safety training,Normal
+U0018,Lina Berg 0019,lina.berg0019@example.com,Fjord Machines Group,Norway,Sales Manager,Product workshop,High
+U0020,Theo Ivanov 0020,theo.ivanov0020@example.com,Fjord Machines Group,Norway,Technician,Final assessment,Normal
+U0021,Ava Patel 0021,ava.patel0021@example.com,Bau Technik Holdings,Germany,Trainer,Opening briefing,Normal
+U0022,Liam Wang 0022,liam.wang0022@example.com,Bau Technik Holdings,Germany,Coordinator,Safety training,Normal
+U0023,Mia Eriksson 0023,mia.eriksson0023@example.com,Bau Technik Holdings,Germany,Analyst,Product workshop,Normal
+U0024,Noah Larsen 0024,noah.larsen0024@example.com,Bau Technik Holdings,Germany,Support Specialist,Final assessment,Normal
+U0025,Emma Silva 0025,emma.silva0025@example.com,Bau Technik Holdings,Germany,Sales Manager,Opening briefing,Normal
+U0026,Oscar Andersson 0026,oscar.andersson0026@example.com,Bau Technik Holdings,Germany,Technician,Safety training,Normal
+U0027,Sofia Holm 0027,sofia.holm0027@example.com,Bau Technik Holdings,Germany,Trainer,Product workshop,Normal
+U0028,Lucas Olsen 0028,lucas.olsen0028@example.com,Bau Technik Holdings,Germany,Coordinator,Final assessment,High
+U0029,Ella Vega 0029,ella.vega0029@example.com,Bau Technik Holdings,Germany,Analyst,Opening briefing,Normal
+U0030,Hugo Dahl 0030,hugo.dahl0030@example.com,Bau Technik Holdings,Germany,Support Specialist,Safety training,Normal
+U0031,Nora Kim 0031,nora.kim0031@example.com,Pieces Service Group,France,Sales Manager,Product workshop,Normal
+U0032,Leo Rossi 0032,leo.rossi0032@example.com,Pieces Service Group,France,Technician,Final assessment,Normal
+U0033,Alma Zimmer 0033,alma.zimmer0033@example.com,Pieces Service Group,France,Trainer,Opening briefing,Normal
+U0034,Felix Garcia 0034,,Pieces Service Group,France,Coordinator,Safety training,Normal
+U0035,Clara Nordin 0035,clara.nordin0035@example.com,Pieces Service Group,France,Analyst,Product workshop,Normal
+U0036,Milo Usman 0036,milo.usman0036@example.com,Pieces Service Group,France,Support Specialist,Final assessment,Normal
+U0037,Freja Carter 0037,freja.carter0037@example.com,Pieces Service Group,France,Sales Manager,Opening briefing,High
+U0038,Elias Johansson 0038,elias.johansson0038@example.com,Pieces Service Group,France,Technician,Safety training,Normal
+U0039,Lina Quinn 0039,lina.quinn0039@example.com,Pieces Service Group,France,Trainer,Product workshop,Normal
+U0040,Theo Young 0040,theo.young0040@example.com,Pieces Service Group,France,Coordinator,Final assessment,Normal
+U0041,Ava Fischer 0041,ava.fischer0041@example.com,Great Lakes Rental,United States,Analyst,Opening briefing,Normal
+U0042,Liam Muller 0042,liam.muller0042@example.com,Great Lakes Rental,United States,Support Specialist,Safety training,Normal
+U0043,Mia Turner 0043,mia.turner0043@example.com,Great Lakes Rental,United States,Sales Manager,Product workshop,Normal
+U0044,Noah Berg 0044,noah.berg0044@example.com,Great Lakes Rental,United States,Technician,Final assessment,Normal
+U0045,Emma Ivanov 0045,emma.ivanov0045@example.com,Nordic Equipmnt Group,United States,Trainer,Opening briefing,Normal
+U0046,Oscar Patel 0046,oscar.patel0046@example.com,Great Lakes Rental,United States,Coordinator,Safety training,High
+U0047,Sofia Wang 0047,sofia.wang0047@example.com,Great Lakes Rental,United States,Analyst,Product workshop,Normal
+U0048,Lucas Eriksson 0048,lucas.eriksson0048@example.com,Great Lakes Rental,United States,Support Specialist,Final assessment,Normal
+U0049,Ella Larsen 0049,ella.larsen0049@example.com,Great Lakes Rental,United States,Sales Manager,Opening briefing,Normal
+U0050,Hugo Silva 0050,hugo.silva0050@example.com,Great Lakes Rental,United States,Technician,Safety training,Normal
+U0051,Nora Andersson 0051,nora.andersson0051@example.com,Britannia Plant Services,United Kingdom,Trainer,Product workshop,Normal
+U0052,Leo Holm 0052,leo.holm0052@example.com,Britannia Plant Services,United Kingdom,Coordinator,Final assessment,Normal
+U0053,Alma Olsen 0053,alma.olsen0053@example.com,Britannia Plant Services,United Kingdom,Analyst,Opening briefing,Normal
+U0054,Felix Vega 0054,felix.vega0054@example.com,Britannia Plant Services,United Kingdom,Support Specialist,Safety training,Normal
+U0055,Clara Dahl 0055,clara.dahl0055@example.com,Britannia Plant Services,United Kingdom,Sales Manager,Product workshop,High
+U0056,Milo Kim 0056,milo.kim0056@example.com,Britannia Plant Services,United Kingdom,Technician,Final assessment,Normal
+U0057,Freja Rossi 0057,freja.rossi0057@example.com,Britannia Plant Services,United Kingdom,Trainer,Opening briefing,Normal
+U0058,Elias Zimmer 0058,elias.zimmer0058@example.com,Britannia Plant Services,United Kingdom,Coordinator,Safety training,Normal
+U0059,Lina Garcia 0059,lina.garcia0059@example.com,Britannia Plant Services,United Kingdom,Analyst,Product workshop,Normal
+U0060,Theo Nordin 0060,theo.nordin0060@example.com,Britannia Plant Services,United Kingdom,Support Specialist,Final assessment,Normal
+U0061,Ava Usman 0061,ava.usman0061@example.com,Delta Connected Services,Netherlands,Sales Manager,Opening briefing,Normal
+U0062,Liam Carter 0062,liam.carter0062@example.com,Delta Connected Services,Netherlands,Technician,Safety training,Normal
+U0063,Mia Johansson 0063,mia.johansson0063@example.com,Delta Connected Services,Netherlands,Trainer,Product workshop,
+U0064,Noah Quinn 0064,noah.quinn0064@example.com,Delta Connected Services,Netherlands,Coordinator,Final assessment,High
+U0065,Emma Young 0065,emma.young0065@example.com,Delta Connected Services,Netherlands,Analyst,Opening briefing,Normal
+U0066,Oscar Fischer 0066,oscar.fischer0066@example.com,Delta Connected Services,Netherlands,Support Specialist,Safety training,Normal
+U0067,Sofia Muller 0067,sofia.muller0067@example.com,Delta Connected Services,Netherlands,Sales Manager,Product workshop,Normal
+U0068,Lucas Turner 0068,lucas.turner0068@example.com,Delta Connected Services,Netherlands,Technician,Final assessment,Normal
+U0069,Ella Berg 0069,ella.berg0069@example.com,Delta Connected Services,Netherlands,Trainer,Opening briefing,Normal
+U0070,Hugo Ivanov 0070,hugo.ivanov0070@example.com,Delta Connected Services,Netherlands,Coordinator,Safety training,Normal
+U0071,Nora Patel 0071,nora.patel0071@example.com,Iberia Dealer Network,Spain,Analyst,Product workshop,Normal
+U0072,Leo Wang 0072,leo.wang0072@example.com,Iberia Dealer Network,Spain,Support Specialist,Final assessment,Normal
+U0073,Alma Eriksson 0073,alma.eriksson0073@example.com,Iberia Dealer Network,Spain,Sales Manager,Opening briefing,High
+U0074,Felix Larsen 0074,felix.larsen0074@example.com,Iberia Dealer Network,Spain,Technician,Safety training,Normal
+U0075,Clara Silva 0075,clara.silva0075@example.com,Iberia Dealer Network,Spain,Trainer,Product workshop,Normal
+U0076,Milo Andersson 0076,milo.andersson0076@example.com,Iberia Dealer Network,Spain,Coordinator,Final assessment,Normal
+U0077,Freja Holm 0077,freja.holm0077@example.com,Iberia Dealer Network,Spain,Analyst,Opening briefing,Normal
+U0078,Elias Olsen 0078,elias.olsen0078@example.com,Iberia Dealer Network,Spain,Support Specialist,Safety training,Normal
+U0079,Lina Vega 0079,lina.vega0079@example.com,Iberia Dealer Network,Spain,Sales Manager,Product workshop,Normal
+U0080,Theo Dahl 0080,theo.dahl0080@example.com,Iberia Dealer Network,Spain,Technician,Final assessment,Normal

@@ -1,0 +1,101 @@
+PARMA ID,Branch ID,Training Region,Support Tier,Customer Success Owner,Priority Score,Last Audit Date,Open Cases,Certification Rate,Notes
+P731204,B731-001,Europe North,Platinum,Ava Andersson,42,2025-05-23,0,72%,Stable
+P184920,B184-001,Europe North,Gold,Noah Fischer,53,2026-06-24,7,73%,Needs follow-up
+P642118,B642-001,Europe Central,Silver,Sofia Kim,64,2024-07-25,1,74%,New branch
+P295731,B295-001,Europe Central,Bronze,Hugo Patel,75,2025-08-26,8,75%,High training demand
+P807443,B807-001,North America,Platinum,Alma Usman,86,2026-09-27,2,76%,Stable
+P516082,B516-001,Europe North,Gold,Milo Andersson,97,2024-10-01,9,77%,Needs follow-up
+P409675,B409-001,Europe North,Silver,,50,2025-11-02,3,78%,New branch
+P920114,B920-001,Europe Central,Bronze,Liam Kim,61,2026-12-03,10,79%,High training demand
+P358706,B358-001,Europe Central,Platinum,Emma Patel,72,2024-01-04,4,80%,Stable
+P674219,B674-001,Latin America,Gold,Lucas Usman,83,,11,81%,Needs follow-up
+P247806,B247-001,Europe Central,Silver,Nora Andersson,94,2026-03-06,5,82%,New branch
+P803162,B803-001,North America,Bronze,Felix Fischer,47,2024-04-07,12,,High training demand
+P469350,B469-001,Oceania,Platinum,Freja Kim,58,2025-05-08,6,84%,Stable
+P582941,B582-001,Latin America,Gold,Theo Patel,69,2026-06-09,0,85%,Needs follow-up
+P390526,B390-001,Asia Pacific,Goldd,Mia Usman,80,2024-07-10,7,86%,New branch
+P718634,B718-001,Africa,Bronze,Oscar Andersson,91,2025-08-11,1,87%,High training demand
+P235497,B235-001,Europe Central,Platinum,Ella Fischer,44,2026-09-12,8,88%,Stable
+P849205,B849-001,Europe Central,Gold,Leo Kim,55,2024-10-13,2,89%,Needs follow-up
+P604738,B604-001,Europe Central,Silver,Clara Patel,66,,9,90%,New branch
+P976051,B976-001,Asia Pacific,Bronze,Elias Usman,77,2026-12-15,3,91%,High training demand
+P731204,B731-002,Europe North,Platinum,Ava Andersson,88,2024-01-16,10,92%,Stable
+P184920,B184-002,Europe North,Gold,Noah Fischer,99,2025-02-17,4,93%,Needs follow-up
+P642118,B642-002,Europe Central,Silver,,52,2026-03-18,11,94%,New branch
+P295731,B295-002,Europe Central,Bronze,Hugo Patel,63,2024-04-19,5,95%,High training demand
+P807443,B807-002,North America,Platinum,Alma Usman,74,2025-05-20,12,96%,Stable
+P516082,B516-002,Europe North,Gold,Milo Andersson,85,2026-06-21,6,97%,Needs follow-up
+P409675,B409-002,Europe North,Silver,Lina Fischer,96,2024-07-22,0,72%,New branch
+P920114,B920-002,Europe Central,Bronze,Liam Kim,49,2025-08-23,7,73%,Needs followup
+P358706,B358-002,Europe Central,Platinum,Emma Patel,60,2026-09-24,1,74%,Stable
+P674219,B674-002,Latin America,Gold,Lucas Usman,71,2024-10-25,8,75%,Needs follow-up
+P247806,B247-002,Europe Central,Silver,Nora Andersson,82,2025-11-26,2,76%,New branch
+P803162,B803-002,North America,Bronze,Felix Fischer,93,2026-12-27,9,77%,High training demand
+P469350,B469-002,Oceania,Platinum,Freja Kim,46,2024-01-01,3,78%,Stable
+P582941,B582-002,Latin America,Gold,Theo Patel,57,2025-02-02,,79%,Needs follow-up
+P390526,B390-002,Asia Pacific,Silver,Mia Usman,68,2026-03-03,4,80%,New branch
+P718634,B718-002,Africa,Bronze,Oscar Andersson,79,2024-04-04,11,81%,High training demand
+P235497,B235-002,Europe Central,Platinum,Ella Fischer,90,2025-05-05,5,82%,Stable
+P849205,B849-002,Europe Central,Gold,Leo Kim,43,2026-06-06,12,83%,Needs follow-up
+P604738,B604-002,Europe Central,Silver,Clara Patel,54,2024-07-07,6,84%,New branch
+P976051,B976-002,Asia Pacific,Bronze,Elias Usman,65,2025-08-08,0,85%,High training demand
+P731204,B731-003,Europe North,Platinum,Ava Andersson,76,2026-09-09,7,86%,Stable
+P184920,B184-003,Europe North,Gold,,87,2024-10-10,1,87%,Needs follow-up
+P642118,B642-003,Europe Central,Silver,Sofia Kim,98,2025-11-11,8,88%,New branch
+P295731,B295-003,Europe Central,Bronze,Hugo Patel,51,2026-12-12,2,89%,High training demand
+P807443,B807-003,North America,Platinum,Alma Usman,62,2024-01-13,9,90%,Stable
+P516082,B516-003,Europe North,Gold,Milo Andersson,73,2025-02-14,3,91%,Needs follow-up
+P409675,B409-003,Europe North,Silver,Lina Fischer,84,2026-03-15,10,92%,New branch
+P920114,B920-003,Europe Central,Bronze,Liam Kim,95,2024-04-16,4,93%,High training demand
+P358706,B358-003,Europe Central,Platinum,Emma Patel,48,2025-05-17,11,94%,Stable
+P674219,B674-003,Latin America,Gold,Lucas Usman,59,2026-06-18,5,,Needs follow-up
+P247806,B247-003,Europe Central,Silver,Nora Andersson,70,2024-07-19,12,96%,New branch
+P803162,B803-003,North America,Bronze,Felix Fischer,81,2025-08-20,6,97%,High training demand
+P469350,B469-003,Oceania,Goldd,Freja Kim,92,2026-09-21,0,72%,Stable
+P582941,B582-003,Latin America,Gold,Theo Patel,45,2024-10-22,7,73%,Needs follow-up
+P390526,B390-003,Asia Pacific,Silver,Mia Usman,56,2025-11-23,1,74%,New branch
+P718634,B718-003,Africa,Bronze,Oscar Andersson,67,2026-12-24,8,75%,High training demand
+P235497,B235-003,Europe Central,Platinum,Ella Fischer,78,2024-01-25,2,76%,Stable
+P849205,B849-003,Europe Central,Gold,Leo Kim,89,2025-02-26,9,77%,Needs follow-up
+P604738,B604-003,Europe Central,Silver,Clara Patel,42,2026-03-27,3,78%,New branch
+P976051,B976-003,Asia Pacific,Bronze,Elias Usman,53,2024-04-01,10,79%,High training demand
+P731204,B731-004,Europe North,Platinum,Ava Andersson,64,2025-05-02,4,80%,Stable
+P184920,B184-004,Europe North,Gold,Noah Fischer,75,2026-06-03,11,81%,Needs follow-up
+P642118,B642-004,Europe Central,Silver,Sofia Kim,86,2024-07-04,5,82%,New branch
+P295731,B295-004,Europe Central,Bronze,Hugo Patel,97,2025-08-05,12,83%,High training demand
+P807443,B807-004,North America,Platinum,Alma Usman,50,,6,84%,Stable
+P516082,B516-004,Europe North,Gold,Milo Andersson,61,2024-10-07,0,85%,Needs follow-up
+P409675,B409-004,Europe North,Silver,Lina Fischer,72,2025-11-08,7,86%,New branch
+P920114,B920-004,Europe Central,Bronze,Liam Kim,83,2026-12-09,,87%,High training demand
+P358706,B358-004,Europe Central,Platinum,Emma Patel,94,2024-01-10,8,88%,Stable
+P674219,B674-004,Latin America,Gold,Lucas Usman,47,2025-02-11,2,89%,Needs follow-up
+P247806,B247-004,Europe Central,Silver,Nora Andersson,58,2026-03-12,9,90%,New branch
+P803162,B803-004,North America,Bronze,Felix Fischer,69,2024-04-13,3,91%,High training demand
+P469350,B469-004,Oceania,Platinum,Freja Kim,80,2025-05-14,10,92%,Stable
+P582941,B582-004,Latin America,Gold,,91,2026-06-15,4,93%,Needs follow-up
+P390526,B390-004,Asia Pacific,Silver,Mia Usman,44,2024-07-16,11,94%,New branch
+P718634,B718-004,Africa,Bronze,Oscar Andersson,55,2025-08-17,5,95%,High training demand
+P235497,B235-004,Europe Central,Platinum,Ella Fischer,66,2026-09-18,12,96%,Stable
+P849205,B849-004,Europe Central,Gold,Leo Kim,77,2024-10-19,6,97%,Needs follow-up
+P604738,B604-004,Europe Central,Silver,Clara Patel,88,2025-11-20,0,72%,New branch
+P976051,B976-004,Asia Pacific,Bronze,Elias Usman,99,2026-12-21,7,73%,High training demand
+P731204,B731-005,Europe North,Platinum,Ava Andersson,52,2024-01-22,1,74%,Stable
+P184920,B184-005,Europe North,Gold,Noah Fischer,63,2025-02-23,8,75%,Needs followup
+P642118,B642-005,Europe Central,Silver,Sofia Kim,74,2026-03-24,2,76%,New branch
+P295731,B295-005,Europe Central,Bronze,Hugo Patel,85,2024-04-25,9,77%,High training demand
+P807443,B807-005,North America,Platinum,Alma Usman,96,2025-05-26,3,78%,Stable
+P516082,B516-005,Europe North,Gold,Milo Andersson,49,2026-06-27,10,79%,Needs follow-up
+P409675,B409-005,Europe North,Silver,Lina Fischer,60,2024-07-01,4,80%,New branch
+P920114,B920-005,Europe Central,Bronze,Liam Kim,71,2025-08-02,11,81%,High training demand
+P358706,B358-005,Europe Central,Platinum,Emma Patel,82,2026-09-03,5,,Stable
+P674219,B674-005,Latin America,Gold,Lucas Usman,93,2024-10-04,12,83%,Needs follow-up
+P582941,B582-005,Latin America,Gold,Theo Patel,79,2025-02-08,1,87%,Needs follow-up
+P390526,B390-005,Asia Pacific,Silver,Mia Usman,90,2026-03-09,8,88%,New branch
+P718634,B718-005,Africa,Bronze,Oscar Andersson,43,2024-04-10,2,89%,High training demand
+P235497,B235-005,Europe Central,Platinum,Ella Fischer,54,2025-05-11,9,90%,Stable
+P849205,B849-005,Europe Central,Gold,Leo Kim,65,2026-06-12,3,91%,Needs follow-up
+P604738,B604-005,Europe Central,Silver,Clara Patel,76,2024-07-13,10,92%,New branch
+P976051,B976-005,Asia Pacific,Bronze,Elias Usman,87,2025-08-14,4,93%,High training demand
+P247806,I247-001,Europe Central,Gold,Emma Johansson,55,2024-01-10,2,80%,Extra insight row
+P803162,I803-002,North America,Silver,Oscar Kim,64,,3,81%,Extra insight row
+P469350,I469-003,Oceania,Bronze,Sofia Larsen,73,2026-03-12,4,82%,Unmatched sample branch

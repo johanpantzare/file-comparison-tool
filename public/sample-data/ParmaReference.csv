@@ -1,0 +1,101 @@
+PARMA ID,Branch ID,Organization Name,Branch Name,Region,Country,Sales 2025,Sales 2026,Currency,Segment
+P731204,B731-001,Nordic Equipment Group,Nordic Equipment Group Stockholm Branch 1,Europe North,Sweden,250000,280000,EUR,Construction
+P184920,B184-001,Fjord Machines Group,Fjord Machines Group Bergen Branch 1,Europe North,Norway,251175,281290,EUR,Mining
+P642118,B642-001,Bau Technik Holdings,Bau Technik Holdings Hamburg Branch 1,Europe Central,Germany,252350,282580,EUR,Rental
+P295731,B295-001,Pieces Service Group,Pieces Service Group Lyon Branch 1,Europe Central,France,253525,283870,EUR,Roads
+P807443,B807-001,Great Lakes Rental,Great Lakes Rental Chicago Branch 1,North America,United States,254700,285160,USD,Construction
+P516082,B516-001,Britannia Plant Services,Britannia Plant Services Bristol Branch 1,Europe North,United Kingdom,255875,286450,EUR,Mining
+P409675,B409-001,Delta Connected Services,Delta Connected Services Rotterdam Branch 1,Europe North,Netherlands,257050,287740,EUR,Rental
+P920114,B920-001,Iberia Dealer Network,Iberia Dealer Network Madrid Branch 1,Europe Central,Spain,258225,289030,EUR,Roads
+P358706,B358-001,Alpina Support Group,Alpina Support Group Milano Branch 1,Europe Central,Italy,259400,290320,EUR,Construction
+P674219,B674-001,Brasil Accounts Group,Brasil Accounts Group Curitiba Branch 1,Latin America,Brazil,260575,291610,USD,Mining
+P247806,B247-001,Baltic Field Services,Baltic Field Services Uppsala Branch 1,Europe Central,Estonia,261750,292900,EUR,Rental
+P803162,B803-001,Maple Heavy Equipment,Maple Heavy Equipment Oslo Branch 1,North America,Canada,262925,294190,EUR,Roads
+P469350,B469-001,Pacific Site Solutions,Pacific Site Solutions Munich Branch 1,Oceania,Australia,264100,295480,EUR,Construction
+P582941,B582-001,Andes Construction Partners,Andes Construction Partners Nantes Branch 1,Latin America,Chile,265275,296770,EUR,Mining
+P390526,B390-001,Sakura Machine Works,Sakura Machine Works Detroit Branch 1,Asia Pacific,Japan,266450,298060,EUR,Rental
+P718634,B718-001,Atlas Earthmoving,Atlas Earthmoving Leeds Branch 1,Africa,South Africa,267625,299350,EUR,Roads
+P235497,B235-001,Vistula Equipment,Vistula Equipment Eindhoven Branch 1,Europe Central,Poland,268800,300640,EUR,Construction
+P849205,B849-001,Douro Plant Hire,Douro Plant Hire Valencia Branch 1,Europe Central,Portugal,269975,301930,EUR,Mining
+P604738,B604-001,Anatolia Dealer Services,Anatolia Dealer Services Turin Branch 1,Europe Central,Turkey,271150,303220,EUR,Rental
+P976051,B976-001,Han River Machinery,Han River Machinery Recife Branch 1,Asia Pacific,South Korea,272325,304510,EUR,Roads
+P731204,B731-002,Nordic Equipment Group,Nordic Equipment Group Tallinn Branch 2,Europe North,Sweden,273500,305800,EUR,Construction
+P184920,B184-002,Fjord Machines Group,Fjord Machines Group Toronto Branch 2,Europe North,Norway,274675,307090,EUR,Mining
+P642118,B642-002,Bau Technik Holdings,Bau Technik Holdings Sydney Branch 2,Europe Central,Germany,275850,308380,EUR,Rental
+P295731,B295-002,Pieces Service Group,Pieces Service Group Santiago Branch 2,Europe Central,France,277025,309670,EUR,Roads
+P807443,B807-002,Great Lakes Rental,Great Lakes Rental Osaka Branch 2,North America,United States,278200,310960,USD,Construction
+P516082,B516-002,Britannia Plant Services,Britannia Plant Services Cape Town Branch 2,Europe North,United Kingdom,279375,312250,EUR,Mining
+P409675,B409-002,Delta Connected Services,Delta Connected Services Warsaw Branch 2,Europe North,Netherlands,280550,313540,EUR,Rental
+P920114,B920-002,Iberia Dealer Network,Iberia Dealer Network Porto Branch 2,Europe Central,Spain,281725,314830,EUR,Roads
+P358706,B358-002,Alpina Support Group,Alpina Support Group Ankara Branch 2,Europe Central,Italy,282900,316120,EUR,Construction
+P674219,B674-002,Brasil Accounts Group,Brasil Accounts Group Busan Branch 2,Latin America,Brazil,284075,317410,USD,Mining
+P247806,B247-002,Baltic Field Services,Baltic Field Services Stockholm Branch 2,Europe Central,Estonia,285250,318700,EUR,Rental
+P803162,B803-002,Maple Heavy Equipment,Maple Heavy Equipment Bergen Branch 2,North America,Canada,286425,319990,EUR,Roads
+P469350,B469-002,Pacific Site Solutions,Pacific Site Solutions Hamburg Branch 2,Oceania,Australia,287600,321280,EUR,Construction
+P582941,B582-002,Andes Construction Partners,Andes Construction Partners Lyon Branch 2,Latin America,Chile,288775,322570,EUR,Mining
+P390526,B390-002,Sakura Machine Works,Sakura Machine Works Chicago Branch 2,Asia Pacific,Japan,289950,323860,EUR,Rental
+P718634,B718-002,Atlas Earthmoving,Atlas Earthmoving Bristol Branch 2,Africa,South Africa,291125,325150,EUR,Roads
+P235497,B235-002,Vistula Equipment,Vistula Equipment Rotterdam Branch 2,Europe Central,Poland,292300,326440,EUR,Construction
+P849205,B849-002,Douro Plant Hire,Douro Plant Hire Madrid Branch 2,Europe Central,Portugal,293475,327730,EUR,Mining
+P604738,B604-002,Anatolia Dealer Services,Anatolia Dealer Services Milano Branch 2,Europe Central,Turkey,294650,329020,EUR,Rental
+P976051,B976-002,Han River Machinery,Han River Machinery Curitiba Branch 2,Asia Pacific,South Korea,295825,330310,EUR,Roads
+P731204,B731-003,Nordic Equipment Group,Nordic Equipment Group Uppsala Branch 3,Europe North,Sweden,297000,331600,EUR,Construction
+P184920,B184-003,Fjord Machines Group,Fjord Machines Group Oslo Branch 3,Europe North,Norway,298175,332890,EUR,Mining
+P642118,B642-003,Bau Technik Holdings,Bau Technik Holdings Munich Branch 3,Europe Central,Germany,299350,334180,EUR,Rental
+P295731,B295-003,Pieces Service Group,Pieces Service Group Nantes Branch 3,Europe Central,France,300525,335470,EUR,Roads
+P807443,B807-003,Great Lakes Rental,Great Lakes Rental Detroit Branch 3,North America,United States,301700,336760,USD,Construction
+P516082,B516-003,Britannia Plant Services,Britannia Plant Services Leeds Branch 3,Europe North,United Kingdom,302875,338050,EUR,Mining
+P409675,B409-003,Delta Connected Services,Delta Connected Services Eindhoven Branch 3,Europe North,Netherlands,304050,339340,EUR,Rental
+P920114,B920-003,Iberia Dealer Network,Iberia Dealer Network Valencia Branch 3,Europe Central,Spain,305225,340630,EUR,Roads
+P358706,B358-003,Alpina Support Group,Alpina Support Group Turin Branch 3,Europe Central,Italy,306400,341920,EUR,Construction
+P674219,B674-003,Brasil Accounts Group,Brasil Accounts Group Recife Branch 3,Latin America,Brazil,307575,343210,USD,Mining
+P247806,B247-003,Baltic Field Services,Baltic Field Services Tallinn Branch 3,Europe Central,Estonia,308750,344500,EUR,Rental
+P803162,B803-003,Maple Heavy Equipment,Maple Heavy Equipment Toronto Branch 3,North America,Canada,309925,345790,EUR,Roads
+P469350,B469-003,Pacific Site Solutions,Pacific Site Solutions Sydney Branch 3,Oceania,Australia,311100,347080,EUR,Construction
+P582941,B582-003,Andes Construction Partners,Andes Construction Partners Santiago Branch 3,Latin America,Chile,312275,348370,EUR,Mining
+P390526,B390-003,Sakura Machine Works,Sakura Machine Works Osaka Branch 3,Asia Pacific,Japan,313450,349660,EUR,Rental
+P718634,B718-003,Atlas Earthmoving,Atlas Earthmoving Cape Town Branch 3,Africa,South Africa,314625,350950,EUR,Roads
+P235497,B235-003,Vistula Equipment,Vistula Equipment Warsaw Branch 3,Europe Central,Poland,315800,352240,EUR,Construction
+P849205,B849-003,Douro Plant Hire,Douro Plant Hire Porto Branch 3,Europe Central,Portugal,316975,353530,EUR,Mining
+P604738,B604-003,Anatolia Dealer Services,Anatolia Dealer Services Ankara Branch 3,Europe Central,Turkey,318150,354820,EUR,Rental
+P976051,B976-003,Han River Machinery,Han River Machinery Busan Branch 3,Asia Pacific,South Korea,319325,356110,EUR,Roads
+P731204,B731-004,Nordic Equipment Group,Nordic Equipment Group Stockholm Branch 4,Europe North,Sweden,320500,357400,EUR,Construction
+P184920,B184-004,Fjord Machines Group,Fjord Machines Group Bergen Branch 4,Europe North,Norway,321675,358690,EUR,Mining
+P642118,B642-004,Bau Technik Holdings,Bau Technik Holdings Hamburg Branch 4,Europe Central,Germany,322850,359980,EUR,Rental
+P295731,B295-004,Pieces Service Group,Pieces Service Group Lyon Branch 4,Europe Central,France,324025,361270,EUR,Roads
+P807443,B807-004,Great Lakes Rental,Great Lakes Rental Chicago Branch 4,North America,United States,325200,362560,USD,Construction
+P516082,B516-004,Britannia Plant Services,Britannia Plant Services Bristol Branch 4,Europe North,United Kingdom,326375,363850,EUR,Mining
+P409675,B409-004,Delta Connected Services,Delta Connected Services Rotterdam Branch 4,Europe North,Netherlands,327550,365140,EUR,Rental
+P920114,B920-004,Iberia Dealer Network,Iberia Dealer Network Madrid Branch 4,Europe Central,Spain,328725,366430,EUR,Roads
+P358706,B358-004,Alpina Support Group,Alpina Support Group Milano Branch 4,Europe Central,Italy,329900,367720,EUR,Construction
+P674219,B674-004,Brasil Accounts Group,Brasil Accounts Group Curitiba Branch 4,Latin America,Brazil,331075,369010,USD,Mining
+P247806,B247-004,Baltic Field Services,Baltic Field Services Uppsala Branch 4,Europe Central,Estonia,332250,370300,EUR,Rental
+P803162,B803-004,Maple Heavy Equipment,Maple Heavy Equipment Oslo Branch 4,North America,Canada,333425,371590,EUR,Roads
+P469350,B469-004,Pacific Site Solutions,Pacific Site Solutions Munich Branch 4,Oceania,Australia,334600,372880,EUR,Construction
+P582941,B582-004,Andes Construction Partners,Andes Construction Partners Nantes Branch 4,Latin America,Chile,335775,374170,EUR,Mining
+P390526,B390-004,Sakura Machine Works,Sakura Machine Works Detroit Branch 4,Asia Pacific,Japan,336950,375460,EUR,Rental
+P718634,B718-004,Atlas Earthmoving,Atlas Earthmoving Leeds Branch 4,Africa,South Africa,338125,376750,EUR,Roads
+P235497,B235-004,Vistula Equipment,Vistula Equipment Eindhoven Branch 4,Europe Central,Poland,339300,378040,EUR,Construction
+P849205,B849-004,Douro Plant Hire,Douro Plant Hire Valencia Branch 4,Europe Central,Portugal,340475,379330,EUR,Mining
+P604738,B604-004,Anatolia Dealer Services,Anatolia Dealer Services Turin Branch 4,Europe Central,Turkey,341650,380620,EUR,Rental
+P976051,B976-004,Han River Machinery,Han River Machinery Recife Branch 4,Asia Pacific,South Korea,342825,381910,EUR,Roads
+P731204,B731-005,Nordic Equipment Group,Nordic Equipment Group Tallinn Branch 5,Europe North,Sweden,344000,383200,EUR,Construction
+P184920,B184-005,Fjord Machines Group,Fjord Machines Group Toronto Branch 5,Europe North,Norway,345175,384490,EUR,Mining
+P642118,B642-005,Bau Technik Holdings,Bau Technik Holdings Sydney Branch 5,Europe Central,Germany,346350,385780,EUR,Rental
+P295731,B295-005,Pieces Service Group,Pieces Service Group Santiago Branch 5,Europe Central,France,347525,387070,EUR,Roads
+P807443,B807-005,Great Lakes Rental,Great Lakes Rental Osaka Branch 5,North America,United States,348700,388360,USD,Construction
+P516082,B516-005,Britannia Plant Services,Britannia Plant Services Cape Town Branch 5,Europe North,United Kingdom,349875,389650,EUR,Mining
+P409675,B409-005,Delta Connected Services,Delta Connected Services Warsaw Branch 5,Europe North,Netherlands,351050,390940,EUR,Rental
+P920114,B920-005,Iberia Dealer Network,Iberia Dealer Network Porto Branch 5,Europe Central,Spain,352225,392230,EUR,Roads
+P358706,B358-005,Alpina Support Group,Alpina Support Group Ankara Branch 5,Europe Central,Italy,353400,393520,EUR,Construction
+P674219,B674-005,Brasil Accounts Group,Brasil Accounts Group Busan Branch 5,Latin America,Brazil,354575,394810,USD,Mining
+P247806,B247-005,Baltic Field Services,Baltic Field Services Stockholm Branch 5,Europe Central,Estonia,355750,396100,EUR,Rental
+P803162,B803-005,Maple Heavy Equipment,Maple Heavy Equipment Bergen Branch 5,North America,Canada,356925,397390,EUR,Roads
+P469350,B469-005,Pacific Site Solutions,Pacific Site Solutions Hamburg Branch 5,Oceania,Australia,358100,398680,EUR,Construction
+P582941,B582-005,Andes Construction Partners,Andes Construction Partners Lyon Branch 5,Latin America,Chile,359275,399970,EUR,Mining
+P390526,B390-005,Sakura Machine Works,Sakura Machine Works Chicago Branch 5,Asia Pacific,Japan,360450,401260,EUR,Rental
+P718634,B718-005,Atlas Earthmoving,Atlas Earthmoving Bristol Branch 5,Africa,South Africa,361625,402550,EUR,Roads
+P235497,B235-005,Vistula Equipment,Vistula Equipment Rotterdam Branch 5,Europe Central,Poland,362800,403840,EUR,Construction
+P849205,B849-005,Douro Plant Hire,Douro Plant Hire Madrid Branch 5,Europe Central,Portugal,363975,405130,EUR,Mining
+P604738,B604-005,Anatolia Dealer Services,Anatolia Dealer Services Milano Branch 5,Europe Central,Turkey,365150,406420,EUR,Rental
+P976051,B976-005,Han River Machinery,Han River Machinery Curitiba Branch 5,Asia Pacific,South Korea,366325,407710,EUR,Roads
