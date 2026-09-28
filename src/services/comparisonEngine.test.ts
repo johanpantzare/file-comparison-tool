@@ -123,6 +123,30 @@ describe('compareTables', () => {
     expect(result.summary.unchanged).toBe(1);
   });
 
+  it('can match keys without case sensitivity', () => {
+    const result = compareTables(
+      table([{ ID: 'x123456', Name: 'Ava', Status: 'Active', Score: 10 }]),
+      table([{ ID: 'X123456', Name: 'Ava', Status: 'Active', Score: 10 }]),
+      {
+        ...baseConfig,
+        keyOptions: { trimWhitespace: false, caseInsensitive: true },
+      },
+    );
+
+    expect(result.summary).toEqual({ added: 0, removed: 0, changed: 0, unchanged: 1 });
+  });
+
+  it('keeps key matching exact by default', () => {
+    const result = compareTables(
+      table([{ ID: 'x123456', Name: 'Ava', Status: 'Active', Score: 10 }]),
+      table([{ ID: 'X123456', Name: 'Ava', Status: 'Active', Score: 10 }]),
+      baseConfig,
+    );
+
+    expect(result.summary.added).toBe(1);
+    expect(result.summary.removed).toBe(1);
+  });
+
   it('keeps unchanged rows in the original file structure', () => {
     const config: ComparisonConfig = {
       ...baseConfig,

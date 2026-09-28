@@ -58,6 +58,20 @@ describe('enrichTable', () => {
     expect(result.rows[0]['Reference Region']).toBe('Europe North');
   });
 
+  it('can match keys without case sensitivity', () => {
+    const result = enrichTable(
+      table([{ Name: 'Ava', 'PARMA ID': 'p1', 'Branch ID': 'b1' }], ['Name', 'PARMA ID', 'Branch ID']),
+      table([{ 'PARMA ID': 'P1', 'Branch ID': 'B1', 'Branch Name': 'Nordic Stockholm', Region: 'Europe North' }], ['PARMA ID', 'Branch ID', 'Branch Name', 'Region']),
+      {
+        ...config,
+        keyOptions: { trimWhitespace: false, caseInsensitive: true },
+      },
+    );
+
+    expect(result.matchedRows).toBe(1);
+    expect(result.rows[0]['Branch Name']).toBe('Nordic Stockholm');
+  });
+
   it('warns when the reference file has duplicate matching keys', () => {
     const result = enrichTable(
       table([{ Name: 'Ava', 'PARMA ID': 'P1', 'Branch ID': 'B1' }], ['Name', 'PARMA ID', 'Branch ID']),

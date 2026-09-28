@@ -739,6 +739,24 @@ dd {
   padding: 0;
 }
 
+.option-select {
+  display: grid;
+  gap: 6px;
+  margin-top: 16px;
+  max-width: 420px;
+}
+
+.option-select span {
+  color: var(--neutral-700);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.option-select small {
+  color: var(--color-muted);
+  line-height: 1.35;
+}
+
 .analysis-card {
   border-radius: 8px;
   margin-top: 14px;

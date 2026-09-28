@@ -27,6 +27,11 @@ export interface ComparedColumnPair {
   new: string;
 }
 
+export interface KeyMatchingOptions {
+  trimWhitespace: boolean;
+  caseInsensitive: boolean;
+}
+
 export interface ComparisonOptions {
   trimWhitespace: boolean;
   caseInsensitive: boolean;
@@ -38,6 +43,7 @@ export interface ComparisonConfig {
   keyColumns: KeyColumnPair[];
   comparedColumns: ComparedColumnPair[];
   options: ComparisonOptions;
+  keyOptions?: KeyMatchingOptions;
 }
 
 export interface ComparisonSummary {
@@ -94,6 +100,7 @@ export interface ComparisonResult {
 export interface EnrichmentConfig {
   keyColumns: KeyColumnPair[];
   addedColumns: string[];
+  keyOptions?: KeyMatchingOptions;
 }
 
 export interface EnrichmentResult {

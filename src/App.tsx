@@ -11,6 +11,7 @@ import type { GeneratedSampleFiles } from './features/sampleData/sampleDataBuild
 import { analyzeMatchingColumns, compareTables } from './services/comparisonEngine';
 import { enrichTable } from './services/enrichmentEngine';
 import { parseFile } from './services/fileParser';
+import { buildNonBlankMatchKey, defaultKeyMatchingOptions } from './services/keyMatching';
 import type {
   ComparedColumnPair,
   CellValue,
@@ -22,6 +23,7 @@ import type {
   EnrichmentConfig,
   EnrichmentResult,
   KeyColumnPair,
+  KeyMatchingOptions,
   ParsedWorkbook,
 } from './types';
 import { formatCell, formatFileSize } from './utils/format';
@@ -75,7 +77,8 @@ type PreviewHandler = (
 ) => void;
 
 type CoverageView = 'primaryAudit' | 'referenceAudit' | 'groupSummary';
-type CoverageStatus = 'Found' | 'Not found' | 'Blank key' | 'Duplicate primary key' | 'Multiple reference matches';
+type CoverageMatchRule = 'combined' | 'identifiers';
+type CoverageStatus = 'Found' | 'Not found' | 'Blank key' | 'Duplicate primary key' | 'Multiple reference matches' | 'All identifiers found' | 'Some identifiers found' | 'No identifiers found';
 
 interface CoverageResult {
   allPrimary: Record<string, CellValue>[];
@@ -85,6 +88,7 @@ interface CoverageResult {
   matchedReference: Record<string, CellValue>[];
   referenceOnly: Record<string, CellValue>[];
   groupSummary: Record<string, CellValue>[];
+  matchRule: CoverageMatchRule;
   duplicateKeys: DuplicateKeyWarning[];
   blankPrimaryKeys: number;
   blankReferenceKeys: number;
@@ -147,11 +151,13 @@ function App() {
   const [privacyTransforms, setPrivacyTransforms] = useState<PrivacyTransforms>({});
   const [privacyTypeOverrides, setPrivacyTypeOverrides] = useState<PrivacyTypeOverrides>({});
   const [options, setOptions] = useState(defaultOptions);
+  const [keyOptions, setKeyOptions] = useState<KeyMatchingOptions>(defaultKeyMatchingOptions);
   const [result, setResult] = useState<ComparisonResult | null>(null);
   const [enrichmentResult, setEnrichmentResult] = useState<EnrichmentResult | null>(null);
   const [coverageResult, setCoverageResult] = useState<CoverageResult | null>(null);
   const [activeView, setActiveView] = useState<ResultView>('changed');
   const [coverageView, setCoverageView] = useState<CoverageView>('primaryAudit');
+  const [coverageMatchRule, setCoverageMatchRule] = useState<CoverageMatchRule>('combined');
   const [coverageReferenceColumns, setCoverageReferenceColumns] = useState<string[]>([]);
   const [search, setSearch] = useState('');
   const [runError, setRunError] = useState<string | null>(null);
@@ -208,8 +214,8 @@ function App() {
 
   const matchingAnalysis = useMemo(() => {
     if (!originalTable || !nextTable || !canContinueMatching(keyColumns)) return null;
-    return analyzeMatchingColumns(originalTable, nextTable, keyColumns);
-  }, [originalTable, nextTable, keyColumns]);
+    return analyzeMatchingColumns(originalTable, nextTable, keyColumns, keyOptions);
+  }, [originalTable, nextTable, keyColumns, keyOptions]);
 
   const commonColumns = useMemo(() => {
     if (!originalTable || !nextTable) return [];
@@ -370,6 +376,8 @@ function App() {
     setComparedColumns([]);
     setAddedColumns([]);
     setExtraAddedColumns([]);
+    setKeyOptions(defaultKeyMatchingOptions);
+    setCoverageMatchRule('combined');
     setCoverageReferenceColumns([]);
     setPrivacyTransforms({});
     setPrivacyTypeOverrides({});
@@ -423,7 +431,7 @@ function App() {
   function runComparison() {
     if (!originalTable || !nextTable) return;
     try {
-      const config: ComparisonConfig = { keyColumns, comparedColumns, options };
+      const config: ComparisonConfig = { keyColumns, comparedColumns, options, keyOptions };
       const comparison = compareTables(originalTable, nextTable, config);
       setResult(comparison);
       setEnrichmentResult(null);
@@ -439,7 +447,7 @@ function App() {
   function runCoverage() {
     if (!originalTable || !nextTable) return;
     try {
-      const coverage = buildCoverageResult(originalTable, nextTable, keyColumns);
+      const coverage = buildCoverageResult(originalTable, nextTable, keyColumns, keyOptions, coverageMatchRule);
       setCoverageResult(coverage);
       setCoverageReferenceColumns((columns) => (
         columns.length > 0 ? columns : suggestedCoverageReferenceColumns(nextTable, keyColumns)
@@ -468,6 +476,7 @@ function App() {
         const partial = enrichTable(currentTable, reference.table, {
           keyColumns: reference.keyColumns,
           addedColumns: reference.addedColumns,
+          keyOptions,
         });
         matchedRows += partial.matchedRows;
         unmatchedRows += partial.unmatchedRows;
@@ -502,11 +511,11 @@ function App() {
   }
 
   function selectedConfig(): ComparisonConfig {
-    return { keyColumns, comparedColumns, options };
+    return { keyColumns, comparedColumns, options, keyOptions };
   }
 
   function selectedEnrichmentConfig(): EnrichmentConfig {
-    return { keyColumns, addedColumns };
+    return { keyColumns, addedColumns, keyOptions };
   }
 
   function setReferenceKeyColumns(referenceIndex: number, columns: KeyColumnPair[]) {
@@ -637,8 +646,10 @@ function App() {
             originalName={originalDisplayName}
             nextName={nextDisplayName}
             keyColumns={keyColumns}
+            keyOptions={keyOptions}
             analysis={matchingAnalysis}
             setKeyColumns={setKeyColumns}
+            setKeyOptions={setKeyOptions}
             onPreview={(title, table, onColumnSelect, options) => setPreviewTable({ title, table, onColumnSelect, ...options })}
           />
         )}
@@ -650,8 +661,12 @@ function App() {
             primaryName={originalDisplayName}
             referenceName={nextDisplayName}
             keyColumns={keyColumns}
+            keyOptions={keyOptions}
+            matchRule={coverageMatchRule}
             analysis={matchingAnalysis}
             setKeyColumns={setKeyColumns}
+            setKeyOptions={setKeyOptions}
+            setMatchRule={setCoverageMatchRule}
             onPreview={(title, table, onColumnSelect, options) => setPreviewTable({ title, table, onColumnSelect, ...options })}
           />
         )}
@@ -661,7 +676,9 @@ function App() {
             base={originalTable}
             baseName={originalDisplayName}
             references={enrichReferences}
+            keyOptions={keyOptions}
             setReferenceKeyColumns={setReferenceKeyColumns}
+            setKeyOptions={setKeyOptions}
             setReferenceAddedColumns={setReferenceAddedColumns}
             runError={runError}
             onPreview={(title, table, onColumnSelect, options) => setPreviewTable({ title, table, onColumnSelect, ...options })}
@@ -1308,12 +1325,25 @@ interface MatchRowsStepProps {
   originalName: string;
   nextName: string;
   keyColumns: KeyColumnPair[];
+  keyOptions: KeyMatchingOptions;
   analysis: ReturnType<typeof analyzeMatchingColumns> | null;
   setKeyColumns: (columns: KeyColumnPair[]) => void;
+  setKeyOptions: (options: KeyMatchingOptions) => void;
   onPreview: PreviewHandler;
 }
 
-function MatchRowsStep({ original, next, originalName, nextName, keyColumns, analysis, setKeyColumns, onPreview }: MatchRowsStepProps) {
+function MatchRowsStep({
+  original,
+  next,
+  originalName,
+  nextName,
+  keyColumns,
+  keyOptions,
+  analysis,
+  setKeyColumns,
+  setKeyOptions,
+  onPreview,
+}: MatchRowsStepProps) {
   return (
     <div className="step-content narrow">
       <div className="section-heading">
@@ -1385,6 +1415,7 @@ function MatchRowsStep({ original, next, originalName, nextName, keyColumns, ana
       >
         <Plus size={18} /> Add another matching column
       </button>
+      <KeyMatchingOptionsControl options={keyOptions} setOptions={setKeyOptions} />
       {analysis ? (
         <div className={`analysis-card ${analysis.originalDuplicates || analysis.newDuplicates ? 'warning' : 'success'}`}>
           <strong>
@@ -1413,8 +1444,12 @@ interface CoverageMatchStepProps {
   primaryName: string;
   referenceName: string;
   keyColumns: KeyColumnPair[];
+  keyOptions: KeyMatchingOptions;
+  matchRule: CoverageMatchRule;
   analysis: ReturnType<typeof analyzeMatchingColumns> | null;
   setKeyColumns: (columns: KeyColumnPair[]) => void;
+  setKeyOptions: (options: KeyMatchingOptions) => void;
+  setMatchRule: (rule: CoverageMatchRule) => void;
   onPreview: PreviewHandler;
 }
 
@@ -1424,8 +1459,12 @@ function CoverageMatchStep({
   primaryName,
   referenceName,
   keyColumns,
+  keyOptions,
+  matchRule,
   analysis,
   setKeyColumns,
+  setKeyOptions,
+  setMatchRule,
   onPreview,
 }: CoverageMatchStepProps) {
   return (
@@ -1495,6 +1534,15 @@ function CoverageMatchStep({
       <button className="secondary compact" type="button" onClick={() => setKeyColumns([...keyColumns, { original: '', new: '' }])}>
         <Plus size={18} /> Add another matching column
       </button>
+      <label className="option-select">
+        <span>Coverage rule</span>
+        <select value={matchRule} onChange={(event) => setMatchRule(event.target.value as CoverageMatchRule)}>
+          <option value="combined">All selected columns identify the same row</option>
+          <option value="identifiers">Check each selected identifier independently</option>
+        </select>
+        <small>Use independent identifiers to see whether User ID, Email, or both exist in the reference data.</small>
+      </label>
+      <KeyMatchingOptionsControl options={keyOptions} setOptions={setKeyOptions} />
       {analysis ? (
         <div className={`analysis-card ${analysis.originalDuplicates || analysis.newDuplicates ? 'warning' : 'success'}`}>
           <strong>{analysis.approximateMatches.toLocaleString()} primary keys found in the reference population.</strong>
@@ -1510,11 +1558,38 @@ function CoverageMatchStep({
   );
 }
 
+function KeyMatchingOptionsControl({
+  options,
+  setOptions,
+}: {
+  options: KeyMatchingOptions;
+  setOptions: (options: KeyMatchingOptions) => void;
+}) {
+  const value = keyMatchingValue(options);
+
+  return (
+    <label className="option-select">
+      <span>Matching style</span>
+      <select
+        value={value}
+        onChange={(event) => setOptions(keyMatchingOptionsFromValue(event.target.value))}
+      >
+        <option value="exact">Exact</option>
+        <option value="ignore-case">Ignore case</option>
+        <option value="ignore-case-trim">Ignore case and surrounding spaces</option>
+      </select>
+      <small>Use ignore case for IDs like x123456 and X123456. Keep exact when casing is meaningful.</small>
+    </label>
+  );
+}
+
 interface EnrichChainStepProps {
   base: DataTable;
   baseName: string;
   references: EnrichReference[];
+  keyOptions: KeyMatchingOptions;
   setReferenceKeyColumns: (referenceIndex: number, columns: KeyColumnPair[]) => void;
+  setKeyOptions: (options: KeyMatchingOptions) => void;
   setReferenceAddedColumns: (referenceIndex: number, columns: string[]) => void;
   runError: string | null;
   onPreview: PreviewHandler;
@@ -1524,7 +1599,9 @@ function EnrichChainStep({
   base,
   baseName,
   references,
+  keyOptions,
   setReferenceKeyColumns,
+  setKeyOptions,
   setReferenceAddedColumns,
   runError,
   onPreview,
@@ -1540,9 +1617,9 @@ function EnrichChainStep({
       <div className="reference-config-list">
         {references.map((reference, referencePosition) => {
           const pairs = reference.keyColumns.length ? reference.keyColumns : [{ original: '', new: '' }];
-          const chainBase = buildChainBaseTable(base, references, referencePosition);
+          const chainBase = buildChainBaseTable(base, references, referencePosition, keyOptions);
           const analysis = canContinueMatching(reference.keyColumns)
-            ? analyzeMatchingColumns(chainBase, reference.table, reference.keyColumns)
+            ? analyzeMatchingColumns(chainBase, reference.table, reference.keyColumns, keyOptions)
             : null;
           const keyColumnNames = new Set(reference.keyColumns.map((pair) => pair.new).filter(Boolean));
           const selectableColumns = reference.table.columns.filter((column) => !keyColumnNames.has(column));
@@ -1628,6 +1705,7 @@ function EnrichChainStep({
               >
                 <Plus size={18} /> Add another matching column
               </button>
+              <KeyMatchingOptionsControl options={keyOptions} setOptions={setKeyOptions} />
               {analysis ? (
                 <div className={`analysis-card ${analysis.originalDuplicates || analysis.newDuplicates ? 'warning' : 'success'}`}>
                   <strong>{analysis.approximateMatches.toLocaleString()} matching values found.</strong>
@@ -2107,8 +2185,8 @@ function CoverageResultsStep({
     [referenceTable, keyColumns, selectedReferenceColumns],
   );
   const auditColumns = useMemo(
-    () => coverageAuditColumns(primaryTable, selectedReferenceContextColumns),
-    [primaryTable, selectedReferenceContextColumns],
+    () => coverageAuditColumns(primaryTable, selectedReferenceContextColumns, keyColumns, result.matchRule),
+    [primaryTable, selectedReferenceContextColumns, keyColumns, result.matchRule],
   );
   const referenceAuditColumns = useMemo(
     () => coverageReferenceAuditColumns(selectedPrimaryContextColumns, referenceTable),
@@ -2138,6 +2216,10 @@ function CoverageResultsStep({
   const checkableCoverage = checkablePrimaryRows === 0 ? 0 : (result.found.length / checkablePrimaryRows) * 100;
   const referenceCoverage = referenceTable.rows.length === 0 ? 0 : (result.matchedReference.length / referenceTable.rows.length) * 100;
   const duplicateKeyRows = result.duplicateKeys.reduce((total, duplicate) => total + duplicate.count, 0);
+  const completeMatchLabel = result.matchRule === 'identifiers' ? 'Complete identifier coverage' : 'One-to-one matches';
+  const completeMatchDescription = result.matchRule === 'identifiers'
+    ? `${formatPercent(primaryCoverage)}% of total primary rows had every usable selected identifier found.`
+    : `${formatPercent(primaryCoverage)}% of total primary rows matched exactly one reference row.`;
   const exportColumns = currentColumns;
   const exportRows = useMemo(
     () => filteredRows.map((row) => Object.fromEntries(exportColumns.map((column) => [column, row[column] ?? null]))),
@@ -2149,7 +2231,7 @@ function CoverageResultsStep({
       <div className="results-header">
         {coverageMetric('Primary issues', result.needsAttention.length.toLocaleString(), 'Primary rows with blank keys, primary duplicates, multiple reference matches, or no match in the reference population.')}
         {coverageMetric('Checkable coverage', `${formatPercent(checkableCoverage)}%`, `${result.found.length.toLocaleString()} of ${checkablePrimaryRows.toLocaleString()} primary rows with usable keys were found.`)}
-        {coverageMetric('One-to-one matches', result.found.length.toLocaleString(), `${formatPercent(primaryCoverage)}% of total primary rows matched exactly one reference row.`)}
+        {coverageMetric(completeMatchLabel, result.found.length.toLocaleString(), completeMatchDescription)}
         {coverageMetric('Matched reference', result.matchedReference.length.toLocaleString(), `${formatPercent(referenceCoverage)}% of the reference population matched the primary list.`)}
       </div>
       <div className="analysis-card success enrichment-context">
@@ -2245,7 +2327,7 @@ function CoverageResultsStep({
       </div>
       <div className="analysis-card success enrichment-context">
         <strong>Checked {primaryWorkbook.displayName || primaryWorkbook.fileName} against {referenceWorkbook.displayName || referenceWorkbook.fileName}.</strong>
-        <p>Primary audit is primary-row based. Reference audit is reference-row based. Group summary is key/count based. Match: {keyColumns.map((pair) => `${pair.original} = ${pair.new}`).join('; ')}.</p>
+        <p>Primary audit is primary-row based. Reference audit is reference-row based. Group summary is key/count based. Rule: {coverageRuleLabel(result.matchRule)}. Match: {keyColumns.map((pair) => `${pair.original} = ${pair.new}`).join('; ')}.</p>
       </div>
       <ResultTable rows={filteredRows} columns={currentColumns} />
     </div>
@@ -2688,18 +2770,36 @@ function canRunComparison(comparedColumns: ComparedColumnPair[]): boolean {
   return comparedColumns.length > 0 && comparedColumns.every((pair) => pair.original && pair.new);
 }
 
+function keyMatchingValue(options: KeyMatchingOptions): string {
+  if (options.caseInsensitive && options.trimWhitespace) return 'ignore-case-trim';
+  if (options.caseInsensitive) return 'ignore-case';
+  return 'exact';
+}
+
+function keyMatchingOptionsFromValue(value: string): KeyMatchingOptions {
+  if (value === 'ignore-case-trim') return { trimWhitespace: true, caseInsensitive: true };
+  if (value === 'ignore-case') return { trimWhitespace: false, caseInsensitive: true };
+  return defaultKeyMatchingOptions;
+}
+
 function buildCoverageResult(
   primary: DataTable,
   reference: DataTable,
   keyColumns: KeyColumnPair[],
+  keyOptions: KeyMatchingOptions = defaultKeyMatchingOptions,
+  matchRule: CoverageMatchRule = 'combined',
 ): CoverageResult {
   if (!canContinueMatching(keyColumns)) {
     throw new Error('Choose at least one complete matching column.');
   }
 
+  if (matchRule === 'identifiers') {
+    return buildIdentifierCoverageResult(primary, reference, keyColumns, keyOptions);
+  }
+
   const duplicateKeys: DuplicateKeyWarning[] = [];
-  const primaryIndex = indexCoverageRows(primary.rows, keyColumns, 'original', duplicateKeys);
-  const referenceIndex = indexCoverageRows(reference.rows, keyColumns, 'new', duplicateKeys);
+  const primaryIndex = indexCoverageRows(primary.rows, keyColumns, 'original', duplicateKeys, keyOptions);
+  const referenceIndex = indexCoverageRows(reference.rows, keyColumns, 'new', duplicateKeys, keyOptions);
   const allPrimary: Record<string, CellValue>[] = [];
   const needsAttention: Record<string, CellValue>[] = [];
   const found: Record<string, CellValue>[] = [];
@@ -2708,7 +2808,7 @@ function buildCoverageResult(
   const referenceOnly: Record<string, CellValue>[] = [];
 
   primary.rows.forEach((primaryRow) => {
-    const key = coverageKey(primaryRow, keyColumns, 'original');
+    const key = buildNonBlankMatchKey(primaryRow, keyColumns, 'original', keyOptions);
     const primaryRows = key ? primaryIndex.get(key) : undefined;
     const referenceRows = key ? referenceIndex.get(key) : undefined;
     const referenceRow = referenceRows?.[0];
@@ -2762,11 +2862,202 @@ function buildCoverageResult(
     matchedReference,
     referenceOnly,
     groupSummary: buildCoverageGroupSummary(primaryIndex, referenceIndex, primary, reference),
+    matchRule,
     duplicateKeys,
-    blankPrimaryKeys: countBlankCoverageKeys(primary.rows, keyColumns, 'original'),
-    blankReferenceKeys: countBlankCoverageKeys(reference.rows, keyColumns, 'new'),
+    blankPrimaryKeys: countBlankCoverageKeys(primary.rows, keyColumns, 'original', keyOptions),
+    blankReferenceKeys: countBlankCoverageKeys(reference.rows, keyColumns, 'new', keyOptions),
     checkedAt: new Date().toISOString(),
   };
+}
+
+interface IdentifierMatch {
+  label: string;
+  key: string;
+  referenceRows: Record<string, CellValue>[];
+}
+
+function buildIdentifierCoverageResult(
+  primary: DataTable,
+  reference: DataTable,
+  keyColumns: KeyColumnPair[],
+  keyOptions: KeyMatchingOptions,
+): CoverageResult {
+  const duplicateKeys: DuplicateKeyWarning[] = [];
+  const identifierIndexes = keyColumns.map((pair) => ({
+    pair,
+    label: identifierLabel(pair),
+    primaryIndex: indexCoverageRows(primary.rows, [pair], 'original', duplicateKeys, keyOptions),
+    referenceIndex: indexCoverageRows(reference.rows, [pair], 'new', duplicateKeys, keyOptions),
+  }));
+  const allPrimary: Record<string, CellValue>[] = [];
+  const needsAttention: Record<string, CellValue>[] = [];
+  const found: Record<string, CellValue>[] = [];
+  const notInReference: Record<string, CellValue>[] = [];
+  const matchedReferenceRows = new Set<Record<string, CellValue>>();
+  const referenceToPrimaryRows = new Map<Record<string, CellValue>, Set<Record<string, CellValue>>>();
+
+  primary.rows.forEach((primaryRow) => {
+    const identifierMatches = identifierIndexes.map(({ pair, label, referenceIndex }) => {
+      const key = buildNonBlankMatchKey(primaryRow, [pair], 'original', keyOptions);
+      return {
+        label,
+        key,
+        referenceRows: key ? referenceIndex.get(key) ?? [] : [],
+      };
+    });
+    const usableMatches = identifierMatches.filter((match) => match.key);
+    const foundMatches = usableMatches.filter((match) => match.referenceRows.length > 0);
+    const referenceRows = uniqueRowObjects(foundMatches.flatMap((match) => match.referenceRows));
+    const status = identifierCoverageStatus(usableMatches.length, foundMatches.length);
+    const auditRow = coverageIdentifierAuditRow(
+      status,
+      identifierCoverageReason(identifierMatches),
+      primaryRow,
+      identifierMatches,
+      referenceRows,
+      primary,
+      reference,
+    );
+
+    allPrimary.push(auditRow);
+    if (status === 'All identifiers found') {
+      found.push(auditRow);
+    } else {
+      needsAttention.push(auditRow);
+    }
+    if (status === 'No identifiers found') {
+      notInReference.push(auditRow);
+    }
+    referenceRows.forEach((referenceRow) => {
+      matchedReferenceRows.add(referenceRow);
+      const primaryRows = referenceToPrimaryRows.get(referenceRow) ?? new Set<Record<string, CellValue>>();
+      primaryRows.add(primaryRow);
+      referenceToPrimaryRows.set(referenceRow, primaryRows);
+    });
+  });
+
+  const matchedReference: Record<string, CellValue>[] = [];
+  const referenceOnly: Record<string, CellValue>[] = [];
+  reference.rows.forEach((referenceRow) => {
+    const primaryRows = [...(referenceToPrimaryRows.get(referenceRow) ?? new Set<Record<string, CellValue>>())];
+    const auditRow = coverageReferenceAuditRow(
+      matchedReferenceRows.has(referenceRow) ? 'Matched' : 'Reference-only',
+      referenceIdentifierLabel(referenceRow, keyColumns, keyOptions),
+      primaryRows,
+      referenceRow,
+      primary,
+      reference,
+    );
+    if (matchedReferenceRows.has(referenceRow)) matchedReference.push(auditRow);
+    else referenceOnly.push(auditRow);
+  });
+
+  return {
+    allPrimary,
+    needsAttention,
+    found,
+    notInReference,
+    matchedReference,
+    referenceOnly,
+    groupSummary: buildIdentifierCoverageGroupSummary(identifierIndexes, primary, reference),
+    matchRule: 'identifiers',
+    duplicateKeys,
+    blankPrimaryKeys: primary.rows.filter((row) => identifierIndexes.every(({ pair }) => !buildNonBlankMatchKey(row, [pair], 'original', keyOptions))).length,
+    blankReferenceKeys: reference.rows.filter((row) => identifierIndexes.every(({ pair }) => !buildNonBlankMatchKey(row, [pair], 'new', keyOptions))).length,
+    checkedAt: new Date().toISOString(),
+  };
+}
+
+function coverageIdentifierAuditRow(
+  status: CoverageStatus,
+  reason: string,
+  primaryRow: Record<string, CellValue>,
+  identifierMatches: IdentifierMatch[],
+  referenceRows: Record<string, CellValue>[],
+  primary: DataTable,
+  reference: DataTable,
+): Record<string, CellValue> {
+  const foundLabels = identifierMatches.filter((match) => match.key && match.referenceRows.length > 0).map((match) => match.label);
+  const missingLabels = identifierMatches.filter((match) => match.key && match.referenceRows.length === 0).map((match) => match.label);
+  const row: Record<string, CellValue> = {
+    Status: status,
+    Reason: reason,
+    'Match key': identifierMatches.filter((match) => match.key).map((match) => `${match.label}: ${match.key}`).join(' | ') || null,
+    'Reference match count': referenceRows.length,
+    'Identifiers checked': identifierMatches.filter((match) => match.key).map((match) => match.label).join(', '),
+    'Identifiers found': foundLabels.join(', '),
+    'Identifiers missing': missingLabels.join(', '),
+  };
+
+  identifierMatches.forEach((match) => {
+    row[`${match.label} key`] = match.key || null;
+    row[`${match.label} status`] = !match.key ? 'Blank' : match.referenceRows.length > 0 ? 'Found' : 'Not found';
+    row[`${match.label} reference match count`] = match.referenceRows.length;
+  });
+  primary.columns.forEach((column) => {
+    row[`Primary ${column}`] = primaryRow[column] ?? null;
+  });
+  reference.columns.forEach((column) => {
+    row[`Reference ${column}`] = referenceColumnSummary(referenceRows, column);
+  });
+
+  return row;
+}
+
+function buildIdentifierCoverageGroupSummary(
+  identifierIndexes: {
+    label: string;
+    primaryIndex: Map<string, Record<string, CellValue>[]>;
+    referenceIndex: Map<string, Record<string, CellValue>[]>;
+  }[],
+  primary: DataTable,
+  reference: DataTable,
+): Record<string, CellValue>[] {
+  return identifierIndexes.flatMap(({ label, primaryIndex, referenceIndex }) => {
+    const keys = new Set([...primaryIndex.keys(), ...referenceIndex.keys()]);
+    return [...keys].map((key) => {
+      const primaryRows = primaryIndex.get(key) ?? [];
+      const referenceRows = referenceIndex.get(key) ?? [];
+      const row: Record<string, CellValue> = {
+        Identifier: label,
+        Status: groupSummaryStatus(primaryRows.length, referenceRows.length),
+        'Match key': key,
+        'Primary match count': primaryRows.length,
+        'Reference match count': referenceRows.length,
+      };
+      primary.columns.forEach((column) => {
+        row[`Primary ${column}`] = referencePrimaryColumnSummary(primaryRows, column);
+      });
+      reference.columns.forEach((column) => {
+        row[`Reference ${column}`] = referenceColumnSummary(referenceRows, column);
+      });
+      return row;
+    });
+  }).sort((left, right) => (
+    String(left.Identifier).localeCompare(String(right.Identifier))
+    || Number(right['Reference match count'] ?? 0) - Number(left['Reference match count'] ?? 0)
+  ));
+}
+
+function identifierCoverageStatus(usableCount: number, foundCount: number): CoverageStatus {
+  if (usableCount === 0) return 'Blank key';
+  if (foundCount === 0) return 'No identifiers found';
+  if (foundCount === usableCount) return 'All identifiers found';
+  return 'Some identifiers found';
+}
+
+function identifierCoverageReason(identifierMatches: IdentifierMatch[]): string {
+  const usableMatches = identifierMatches.filter((match) => match.key);
+  if (usableMatches.length === 0) return 'No selected identifier has a usable value.';
+  const foundLabels = usableMatches.filter((match) => match.referenceRows.length > 0).map((match) => match.label);
+  const missingLabels = usableMatches.filter((match) => match.referenceRows.length === 0).map((match) => match.label);
+  if (missingLabels.length === 0) return `Found by ${foundLabels.join(', ')}.`;
+  if (foundLabels.length === 0) return `No reference row uses ${missingLabels.join(', ')}.`;
+  return `Found by ${foundLabels.join(', ')}. Missing ${missingLabels.join(', ')}.`;
+}
+
+function uniqueRowObjects(rows: Record<string, CellValue>[]): Record<string, CellValue>[] {
+  return [...new Set(rows)];
 }
 
 function coverageReason(status: CoverageStatus, primaryMatchCount: number, referenceMatchCount: number): string {
@@ -2782,11 +3073,12 @@ function indexCoverageRows(
   keyColumns: KeyColumnPair[],
   side: 'original' | 'new',
   duplicateKeys: DuplicateKeyWarning[],
+  keyOptions: KeyMatchingOptions,
 ): Map<string, Record<string, CellValue>[]> {
   const index = new Map<string, Record<string, CellValue>[]>();
 
   rows.forEach((row) => {
-    const key = coverageKey(row, keyColumns, side);
+    const key = buildNonBlankMatchKey(row, keyColumns, side, keyOptions);
     if (!key) return;
     const bucket = index.get(key) ?? [];
     bucket.push(row);
@@ -2804,18 +3096,9 @@ function countBlankCoverageKeys(
   rows: Record<string, CellValue>[],
   keyColumns: KeyColumnPair[],
   side: 'original' | 'new',
+  keyOptions: KeyMatchingOptions,
 ): number {
-  return rows.filter((row) => !coverageKey(row, keyColumns, side)).length;
-}
-
-function coverageKey(
-  row: Record<string, CellValue>,
-  keyColumns: KeyColumnPair[],
-  side: 'original' | 'new',
-): string {
-  const parts = keyColumns.map((pair) => formatCell(row[pair[side]]).trim());
-  if (parts.every((part) => part === '')) return '';
-  return parts.join('\u001f');
+  return rows.filter((row) => !buildNonBlankMatchKey(row, keyColumns, side, keyOptions)).length;
 }
 
 function coverageAuditRow(
@@ -2868,12 +3151,30 @@ function uniqueFormattedValues(values: CellValue[]): string[] {
   return unique;
 }
 
-function coverageAuditColumns(primary: DataTable, referenceColumns: string[]): string[] {
+function coverageAuditColumns(
+  primary: DataTable,
+  referenceColumns: string[],
+  keyColumns: KeyColumnPair[],
+  matchRule: CoverageMatchRule,
+): string[] {
+  const identifierColumns = matchRule === 'identifiers'
+    ? [
+      'Identifiers checked',
+      'Identifiers found',
+      'Identifiers missing',
+      ...keyColumns.flatMap((pair) => {
+        const label = identifierLabel(pair);
+        return [`${label} key`, `${label} status`, `${label} reference match count`];
+      }),
+    ]
+    : [];
+
   return [
     'Status',
     'Reason',
     'Match key',
     'Reference match count',
+    ...identifierColumns,
     ...primary.columns.map((column) => `Primary ${column}`),
     ...referenceColumns.map((column) => `Reference ${column}`),
   ];
@@ -2963,6 +3264,7 @@ function groupSummaryStatus(primaryCount: number, referenceCount: number): strin
 
 function coverageGroupSummaryColumns(primaryColumns: string[], referenceColumns: string[]): string[] {
   return [
+    'Identifier',
     'Status',
     'Match key',
     'Primary match count',
@@ -2970,6 +3272,27 @@ function coverageGroupSummaryColumns(primaryColumns: string[], referenceColumns:
     ...primaryColumns.map((column) => `Primary ${column}`),
     ...referenceColumns.map((column) => `Reference ${column}`),
   ];
+}
+
+function identifierLabel(pair: KeyColumnPair): string {
+  return pair.original === pair.new ? pair.original : `${pair.original} / ${pair.new}`;
+}
+
+function referenceIdentifierLabel(
+  referenceRow: Record<string, CellValue>,
+  keyColumns: KeyColumnPair[],
+  keyOptions: KeyMatchingOptions,
+): string {
+  return keyColumns
+    .map((pair) => `${identifierLabel(pair)}: ${buildNonBlankMatchKey(referenceRow, [pair], 'new', keyOptions)}`)
+    .filter((part) => !part.endsWith(': '))
+    .join(' | ');
+}
+
+function coverageRuleLabel(rule: CoverageMatchRule): string {
+  return rule === 'identifiers'
+    ? 'check each selected identifier independently'
+    : 'all selected columns identify the same row';
 }
 
 function coveragePrimaryContextColumns(primary: DataTable, keyColumns: KeyColumnPair[]): string[] {
@@ -3051,7 +3374,12 @@ function canRunEnrichmentReferences(references: EnrichReference[]): boolean {
   return references.length > 0 && references.every(canRunEnrichmentReference);
 }
 
-function buildChainBaseTable(base: DataTable, references: EnrichReference[], referencePosition: number): DataTable {
+function buildChainBaseTable(
+  base: DataTable,
+  references: EnrichReference[],
+  referencePosition: number,
+  keyOptions: KeyMatchingOptions,
+): DataTable {
   let currentTable = base;
 
   for (const reference of references.slice(0, referencePosition)) {
@@ -3060,6 +3388,7 @@ function buildChainBaseTable(base: DataTable, references: EnrichReference[], ref
         const result = enrichTable(currentTable, reference.table, {
           keyColumns: reference.keyColumns,
           addedColumns: reference.addedColumns,
+          keyOptions,
         });
         currentTable = {
           columns: result.columns,
@@ -3246,9 +3575,10 @@ function exportCoverageWorkbook(
       ['Primary file', config.primaryName],
       ['Reference file', config.referenceName],
       ['Matching columns', config.keyColumns.map((pair) => `${pair.original} = ${pair.new}`).join('; ')],
+      ['Coverage rule', coverageRuleLabel(result.matchRule)],
       ['Primary audit rows', String(result.allPrimary.length)],
       ['Primary issues', String(result.needsAttention.length)],
-      ['One-to-one matches', String(result.found.length)],
+      [result.matchRule === 'identifiers' ? 'Complete identifier coverage' : 'One-to-one matches', String(result.found.length)],
       ['Not in reference', String(result.notInReference.length)],
       ['Matched reference rows', String(result.matchedReference.length)],
       ['Reference-only rows', String(result.referenceOnly.length)],

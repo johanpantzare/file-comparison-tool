@@ -5,10 +5,9 @@ import type {
   EnrichmentConfig,
   EnrichmentResult,
   KeyColumnPair,
+  KeyMatchingOptions,
 } from '../types';
-import { formatCell } from '../utils/format';
-
-const keySeparator = '\u001f';
+import { buildMatchKey, defaultKeyMatchingOptions } from './keyMatching';
 
 export function enrichTable(
   base: DataTable,
@@ -18,13 +17,14 @@ export function enrichTable(
   validateConfig(config);
 
   const duplicateKeys: DuplicateKeyWarning[] = [];
-  const referenceIndex = indexReferenceRows(reference.rows, config.keyColumns, duplicateKeys);
+  const keyOptions = config.keyOptions ?? defaultKeyMatchingOptions;
+  const referenceIndex = indexReferenceRows(reference.rows, config.keyColumns, duplicateKeys, keyOptions);
   const outputColumns = buildOutputColumns(base.columns, config.addedColumns);
   let matchedRows = 0;
   let unmatchedRows = 0;
 
   const rows = base.rows.map((baseRow) => {
-    const key = buildKey(baseRow, config.keyColumns, 'original');
+    const key = buildMatchKey(baseRow, config.keyColumns, 'original', keyOptions);
     const referenceRow = referenceIndex.get(key)?.[0];
     const outputRow: Record<string, CellValue> = { ...baseRow };
 
@@ -65,11 +65,12 @@ function indexReferenceRows(
   rows: Record<string, CellValue>[],
   keyColumns: KeyColumnPair[],
   duplicateKeys: DuplicateKeyWarning[],
+  keyOptions: KeyMatchingOptions,
 ): Map<string, Record<string, CellValue>[]> {
   const index = new Map<string, Record<string, CellValue>[]>();
 
   rows.forEach((row) => {
-    const key = buildKey(row, keyColumns, 'new');
+    const key = buildMatchKey(row, keyColumns, 'new', keyOptions);
     const bucket = index.get(key) ?? [];
     bucket.push(row);
     index.set(key, bucket);
@@ -82,14 +83,6 @@ function indexReferenceRows(
   }
 
   return index;
-}
-
-function buildKey(
-  row: Record<string, CellValue>,
-  keyColumns: KeyColumnPair[],
-  side: 'original' | 'new',
-): string {
-  return keyColumns.map((pair) => formatCell(row[pair[side]])).join(keySeparator);
 }
 
 function buildOutputColumns(

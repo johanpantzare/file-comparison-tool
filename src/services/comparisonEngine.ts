@@ -6,11 +6,11 @@ import type {
   ComparisonResult,
   DataTable,
   DuplicateKeyWarning,
+  KeyMatchingOptions,
   KeyColumnPair,
 } from '../types';
 import { formatCell } from '../utils/format';
-
-const keySeparator = '\u001f';
+import { buildMatchKey, defaultKeyMatchingOptions } from './keyMatching';
 
 export function compareTables(
   original: DataTable,
@@ -20,8 +20,9 @@ export function compareTables(
   validateConfig(config);
 
   const duplicateKeys: DuplicateKeyWarning[] = [];
-  const originalIndex = indexRows(original.rows, config.keyColumns, 'original', duplicateKeys);
-  const newIndex = indexRows(next.rows, config.keyColumns, 'new', duplicateKeys);
+  const keyOptions = config.keyOptions ?? defaultKeyMatchingOptions;
+  const originalIndex = indexRows(original.rows, config.keyColumns, 'original', duplicateKeys, keyOptions);
+  const newIndex = indexRows(next.rows, config.keyColumns, 'new', duplicateKeys, keyOptions);
 
   const added: Record<string, CellValue>[] = [];
   const removed: Record<string, CellValue>[] = [];
@@ -115,6 +116,7 @@ export function analyzeMatchingColumns(
   original: DataTable,
   next: DataTable,
   keyColumns: KeyColumnPair[],
+  keyOptions: KeyMatchingOptions = defaultKeyMatchingOptions,
 ): {
   originalPopulated: number;
   newPopulated: number;
@@ -124,8 +126,8 @@ export function analyzeMatchingColumns(
   newDuplicates: number;
   approximateMatches: number;
 } {
-  const originalKeys = collectKeys(original.rows, keyColumns, 'original');
-  const newKeys = collectKeys(next.rows, keyColumns, 'new');
+  const originalKeys = collectKeys(original.rows, keyColumns, 'original', keyOptions);
+  const newKeys = collectKeys(next.rows, keyColumns, 'new', keyOptions);
   const originalSet = new Set(originalKeys.filter(Boolean));
   const newSet = new Set(newKeys.filter(Boolean));
   const approximateMatches = [...originalSet].filter((key) => newSet.has(key)).length;
@@ -155,11 +157,12 @@ function indexRows(
   keyColumns: KeyColumnPair[],
   side: 'original' | 'new',
   duplicateKeys: DuplicateKeyWarning[],
+  keyOptions: KeyMatchingOptions,
 ): Map<string, Record<string, CellValue>[]> {
   const index = new Map<string, Record<string, CellValue>[]>();
 
   rows.forEach((row) => {
-    const key = buildKey(row, keyColumns, side);
+    const key = buildMatchKey(row, keyColumns, side, keyOptions);
     const bucket = index.get(key) ?? [];
     bucket.push(row);
     index.set(key, bucket);
@@ -178,16 +181,9 @@ function collectKeys(
   rows: Record<string, CellValue>[],
   keyColumns: KeyColumnPair[],
   side: 'original' | 'new',
+  keyOptions: KeyMatchingOptions,
 ): string[] {
-  return rows.map((row) => buildKey(row, keyColumns, side));
-}
-
-function buildKey(
-  row: Record<string, CellValue>,
-  keyColumns: KeyColumnPair[],
-  side: 'original' | 'new',
-): string {
-  return keyColumns.map((pair) => formatCell(row[pair[side]])).join(keySeparator);
+  return rows.map((row) => buildMatchKey(row, keyColumns, side, keyOptions));
 }
 
 function keyToLabel(
